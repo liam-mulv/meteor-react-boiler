@@ -1,5 +1,5 @@
-# Boilerplate Meteor Project
+# Meteorjs & ReactJs Boilerplate
 
-Tech Stack: Node.js, Meteor, React, StyleComponents
+Stack: NodeJs, MeteorJs, ReactJs & StyledComponents
 
-This includes a basic ReactJS UI and Meteor Auth setup with some basic common styles
+Meteor App including authentication and basic routes
