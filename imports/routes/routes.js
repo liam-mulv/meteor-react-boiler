@@ -4,19 +4,29 @@ import { Router, Route, Switch, withRouter } from 'react-router-dom'
 import {createBrowserHistory} from 'history';
 const browserHistory = createBrowserHistory();
 
-
+// Manage Scroll
+import ScrollToTop from './ScrollToTop'
 // Auth components
 import Signup from '../ui/authenticate/Signup'
 import Login from '../ui/authenticate/Login'
-// Dasboard components
-import Dashboard from '../ui/dashboard/Dashboard'
+// Components
+import Navbar from '../ui/components/navbar/Navbar'
+import Footer from '../ui/components/footer/Footer'
+
+// Pages
+import Home from '../ui/pages/home/Home'
+import Discover from '../ui/pages/discover/Discover'
+import Profile from '../ui/pages/profile/Profile'
+import Collab from '../ui/pages/collab/Collab'
+import MyCollabs from '../ui/pages/my_collabs/MyCollabs'
+
 // Common components
 import NotFound from '../ui/common/NotFound'
 
 
 // Page paths
 const unauthenticatedPages = ['/', 'signup']
-const authenticatedPages = ['/dashboard']
+const authenticatedPages = ['/home']
 
 export const onAuthChange = (isAuthenticated) => {
 	const pathname = browserHistory.location.pathname
@@ -24,8 +34,9 @@ export const onAuthChange = (isAuthenticated) => {
 	const isAuthenticatedPage = authenticatedPages.includes(pathname)
 
 	if(isUnauthenticatedPage && isAuthenticated) {
-		browserHistory.replace('/dashboard')
+		browserHistory.replace('/home')
 	}
+	
 	if(isAuthenticatedPage && !isAuthenticated) {
 		browserHistory.replace('/')
 	}
@@ -34,11 +45,20 @@ export const onAuthChange = (isAuthenticated) => {
 // Routes
 export const routes = (
   <Router history={browserHistory}>
-      <Switch>
-		<Route exact path='/' component={Login}/>
-		<Route path='/signup' component={Signup}/>
-		<Route path='/dashboard' component={Dashboard}/>
-		<Route component={NotFound}/>
-      </Switch>
+        <React.Fragment>
+          		<ScrollToTop/>
+
+	  		<Route component={Navbar}/>
+		    <Switch>
+				<Route exact path='/' component={Login}/>
+				<Route path='/signup' component={Signup}/>
+				<Route path='/home' component={Home}/>
+				<Route path="/discover" component={Discover}/>
+				<Route path="/profile/:id" component={Profile}/>
+				<Route path="/collab/:id" component={Collab}/>
+				<Route path="/my-collabs" component={MyCollabs}/>
+				<Route component={NotFound}/>
+		    </Switch>
+		</React.Fragment>
   </Router>
 )
