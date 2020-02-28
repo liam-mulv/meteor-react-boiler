@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const FeatureCardWrapper = styled.div`
 	display: flex !important;
-    max-width: 50% !important;
-    min-width: 50% !important;
+    // max-width: 50% !important;
+    // min-width: 50% !important;
     min-height: 220px !important;
     padding: 8px 16px 8px 0px !important;
 `
@@ -11,7 +11,7 @@ export const FeatureCardWrapper = styled.div`
 export const FeatureCardContainer = styled.div`
 	display: flex !important;
     flex-direction: column !important;
-    width: 100% !important;
+    // width: 100% !important;
     white-space: pre-line !important;
     border: 1px solid rgba(0, 0, 0, 0.1)!important;
     border-radius: 4px !important;

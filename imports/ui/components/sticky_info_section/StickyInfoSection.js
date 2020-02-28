@@ -4,7 +4,7 @@ import {StickyInfoSectionContainer, StickyTitle, ContentLeft, ContentRight} from
 
 function StickyInfoSection(props) {
 	return (
-		<StickyInfoSectionContainer>
+		<StickyInfoSectionContainer reverseDirection={props.reverseDirection}>
 			<ContentLeft 
 				padding={props.contentLeftPadding} 
 				contentLeftMaxWidth={props.contentLeftMaxWidth} 
@@ -15,7 +15,7 @@ function StickyInfoSection(props) {
 					{props.contentLeft && props.contentLeft}
 				</StickyTitle>
 			</ContentLeft>
-			<ContentRight threeColumnLayout={props.threeColumnLayout} border={props.border} padding={props.contentRightPadding}>
+			<ContentRight contentRightMaxWidth={props.contentRightMaxWidth} threeColumnLayout={props.threeColumnLayout} border={props.border} padding={props.contentRightPadding}>
 				{props.children}
 			</ContentRight>
 		</StickyInfoSectionContainer>

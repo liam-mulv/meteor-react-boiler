@@ -6,46 +6,46 @@ export const SkeletonCollabWrapper = styled.div`
     vertical-align: top !important;
     white-space: normal !important;
 
-
     ${props => props.simple ?
         `@media (max-width: 2400px) { 
-            width: calc(100% / 5);
+            flex: 0 0 15%;    
         }
         @media (max-width: 1880px) { 
-            width: calc(100% / 4);
+            flex: 0 0 20%;    
         }
 
-        @media (max-width: 1440px) { 
-            width: calc(100% / 3);
+        @media (max-width: 1640px) { 
+            flex: 0 0 25%;    
         }
 
         @media (max-width: 1128px) { 
-            width: calc(100% / 2);
+            flex: 0 0 33.33%;    
         }
 
         @media (max-width: 744px) { 
-            width: calc(100% / 1);
+            flex: 0 0 33.33%;    
         }`
     : 
         `@media (max-width: 2400px) { 
-            width: calc(100% / 5);
+            flex: 0 0 15%;    
         }
         @media (max-width: 1880px) { 
-            width: calc(100% / 4);
+            flex: 0 0 20%;    
         }
 
-        @media (max-width: 1440px) { 
-            width: calc(100% / 3);
+        @media (max-width: 1640px) { 
+            flex: 0 0 25%;    
         }
 
         @media (max-width: 1128px) { 
-            width: calc(100% / 2);
+            flex: 0 0 33.33%;    
         }
 
         @media (max-width: 744px) { 
-            width: calc(100% / 1);
+            flex: 0 0 33.33%;    
         }`
-    }
+
+    };
 `
 
 export const SkeletonCollabContentsWrapper = styled.div`
@@ -55,7 +55,7 @@ export const SkeletonCollabContentsWrapper = styled.div`
 export const SkeletonCollabTile = styled.div`
     position: relative;
     border-radius: 5px;
-    padding: 8px 8px 30px;
+    padding: 8px 12px 30px;
 `
 
 export const SkeletonCollabImage = styled(SkeletonPulseTwo)`
@@ -64,6 +64,7 @@ export const SkeletonCollabImage = styled(SkeletonPulseTwo)`
     position: relative;
     height: 100%;
     padding-bottom: 55%;
+    margin-bottom: -4px;
 `
 
 export const SkeletonCollabHostMainText = styled.div`
@@ -92,13 +93,13 @@ export const SkeletonCollabTitle = styled(SkeletonPulseTwo)`
 export const SkeletonCollabDescription = styled(SkeletonPulseTwo)`
     width: 100%;
     height: 12px;
-    margin: 7px 0px 10px;
+    margin: 0px 0px 10px;
 `
 
 export const SkeletonCollabTags = styled(SkeletonPulseTwo)`
     width: 20%;
-    height: 15px;
-    margin: 0px 5px 0px 0px;
+    height: 17px;
+    margin: 0px 5px 6px 0px;
     float: left;
     border-radius: 15px;
 `

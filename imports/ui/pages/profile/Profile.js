@@ -18,6 +18,7 @@ import ProfileStats from '../../components/profile/ProfileStats'
 import QuickNav from '../../components/quick-nav/QuickNav'
 import CollabHeader from '../../components/collab/CollabHeader'
 import MapBox from '../../components/map/MapBox'
+import Carousel from '../../components/carousel/Carousel'
 
 // Data
 import data from '../../data/collab_data'
@@ -36,6 +37,7 @@ const mentions = [
 ]
 
 // Styled Components
+import {DashboardContainer} from '../home/Home.sc'
 import { PageContainer, PageFlexContainer, PageContent, FlexSpacer, ScrollElement  } from '../../common/Common.sc'
 
 
@@ -106,68 +108,71 @@ export default class ProfilePage extends  React.Component {
 
 		return (
 			<React.Fragment>
+			<DashboardContainer marginTop="0px">
 				<PageContainer>
-					<PageFlexContainer>
+					<PageFlexContainer maxWidth="1350px" padding="0px 35px">
 						<StickyInfoSection 
-							sticky="60px" 
-							contentLeftPadding="0px 50px 0px 0px" 
+							sticky="80px" 
+							contentLeftPadding="0px 0px 0px 0px" 
 							contentRightPadding="0px 0px 0px 50px" 
-							contentLeftMaxWidth="420px"
-							contentLeftMinWidth="300px"
+							contentLeftMaxWidth="380px"
+							contentLeftMinWidth="380px"
+							contentRightMaxWidth="calc(100% - 380px)"
 							contentLeftFlex="0 0 25%"
 							isNoTitle={true}
-							border={true}
+							border={false}
 							titlePadding="0px"
+							reverseDirection={false}
 							contentLeft={<ProfileInfo type="Influencer" isLoading={isLoading}/>}>
-							<FlexSpacer height="40px"/>
-							<CollabHeader type="PROFILE" title="Hi, I'm Emily!" isLoading={isLoading} tags={tags} mapRef={this.mapSectionRef} getScrollDuration={this.getScrollDuration}/>
-							<FlexSpacer height="40px"/>
-							<QuickNav navigation={navigation_component} getScrollDuration={this.getScrollDuration} marginBottom='0px'/>
+							<FlexSpacer height="30px"/>
+							<CollabHeader type="PROFILE" title="Emily van Run" isLoading={isLoading} tags={tags} mapRef={this.mapSectionRef} getScrollDuration={this.getScrollDuration}/>
+							<FlexSpacer height="30px"/>
+							<QuickNav padding="14px 0px" topBorder={true} stickyPosition="80px" navigation={navigation_component} getScrollDuration={this.getScrollDuration} marginBottom='0px' isLoading={isLoading}/>
 							<FlexSpacer height="40px"/>
 							<ScrollElement name="instagram-section" className="element">
 								<div ref={this.instagramSectionRef}>
-									<List title="Instagram Feed" simple={true} length={6} view_more={false} type="instagram_post" headerPadding="15px 0px 10px"/>
+									<Carousel isLoading={isLoading} title="Instagram feed" type="instagram" simple={true}/>
 								</div>
 							</ScrollElement>
 							<PageContent>
 								<FlexSpacer height="60px"/>
 								<ScrollElement name="collabs-section" className="element">
 									<div ref={this.collabsSectionRef}>
-										<List  title="Past Collabs" simple={true} length={4} view_more={false} type="collabs" headerPadding="15px 0px 10px"/>
+										<List isLoading={isLoading} dontLoadMore={true} title="Collaborated on" simple={true} length={2} view_more={false} type="collabs" headerPadding="15px 0px 10px"/>
 									</div>
 								</ScrollElement>
 								<FlexSpacer height="60px"/>
 								<ScrollElement name="collabd-with-section" className="element">
 									<div ref={this.collabdWithSectionRef}>
-										<List title="Collab'd with" simple={true} length={7} view_more={true} type="influencers" headerPadding="15px 0px 10px"/>
+										<Carousel isLoading={isLoading} title="Collaborated with" type="profiles" simple={true}/>
 									</div>
 								</ScrollElement>
 								<FlexSpacer height="60px"/>
 								<ScrollElement name="reviews-section" className="element">
 									<div ref={this.reviewsSectionRef}>
-										<StickyInfoSection title="Reviews" sticky="130px" subHeader={<StarRating/>}>
+										<StickyInfoSection title="Reviews" sticky="150px" subHeader={<StarRating/>}>
 											<Reviews isLoading={isLoading} reviews={reviews}/>
 										</StickyInfoSection>
 									</div>
 								</ScrollElement>
-								<FlexSpacer height="60px"/>
+	{/*							<FlexSpacer height="60px"/>
 								<ScrollElement name="map-section" className="element">
 									<div ref={this.mapSectionRef}>
-										<MapBox title="Influencer City"/>
+										<MapBox title="Location"/>
 									</div>
-								</ScrollElement>
+								</ScrollElement>*/}
 								<FlexSpacer height="60px"/>
 								<ScrollElement name="similar-section" className="element">
 									<div ref={this.similarInfluencerSectionRef}>
-										<List title="Similar Influencers" similarList={true} length={7} view_more={true} type="influencers" headerFontSize={'2rem'} headerIsSticky={false} headerPadding="15px 0px 10px"/>
+										<Carousel isLoading={isLoading} title="Similar" type="profiles" simple={false}/>
 									</div>
 								</ScrollElement>
 								<Footer/>
 							</PageContent>
 						</StickyInfoSection>
 					</PageFlexContainer>
-					<StickyInviteFooter isLoading={isLoading} isStuck={!isLoading}/>
-				</PageContainer>
+					</PageContainer>
+				</DashboardContainer>
 			</React.Fragment>
 		)
 	}

@@ -6,48 +6,46 @@ export const InfluencerWrapper = styled.div`
     overflow: hidden;
     position: relative;
     border-radius: 5px;
-    width: 10%;
-    display: inline-block;
+    position: relative;
 
     ${props => props.simple ?
         `@media (max-width: 2400px) { 
-            width: calc(100% / 10);
+            flex: 0 0 10%;    
         }
         @media (max-width: 1880px) { 
-            width: calc(100% / 9);
+            flex: 0 0 14.2%;    
         }
 
-        @media (max-width: 1440px) { 
-            width: calc(100% / 8);
+        @media (max-width: 1640px) { 
+            flex: 0 0 18%;    
         }
 
         @media (max-width: 1128px) { 
-            width: calc(100% / 6);
+            flex: 0 0 20%;    
         }
 
         @media (max-width: 744px) { 
-            width: calc(100% / 5);
+            flex: 0 0 30%;    
         }`
     : 
         `@media (max-width: 2400px) { 
-            width: calc(100% / 9);
+            flex: 0 0 10%;    
         }
         @media (max-width: 1880px) { 
-            width: calc(100% / 8);
+            flex: 0 0 14.2%;    
         }
 
-        @media (max-width: 1440px) { 
-            width: calc(100% / 7);
+        @media (max-width: 1640px) { 
+            flex: 0 0 18%;    
         }
 
         @media (max-width: 1128px) { 
-            width: calc(100% / 5);
+            flex: 0 0 20%;    
         }
 
         @media (max-width: 744px) { 
-            width: calc(100% / 4);
+            flex: 0 0 30%;    
         }`
-
     };
 
 `
@@ -56,6 +54,7 @@ export const InfluencerTile = styled.div`
     overflow: hidden;
     position: relative;
     border-radius: 5px;
+    border: 1px solid #eee;
 
     a > div {
         border-radius: ${props => props.simple ? '50%' : '5px'};
@@ -86,6 +85,14 @@ export const InfluencerTileInnerContainer = styled.div`
     padding: 8px;
 `
 
+export const DisplayPicture = styled.div`
+    width: 100px;
+    height: 100px;
+    border-radius: 50%!important;
+    margin: 20px auto 10px;
+    overflow: hidden;
+`
+
 export const StyledBackgroundImage = styled(BackgroundImage)`
     background-size: cover;
     background-position: center;
@@ -94,7 +101,7 @@ export const StyledBackgroundImage = styled(BackgroundImage)`
     transition: 0.2s;
     overflow: hidden;
 
-    padding-bottom:  ${props => props.simple ? '100%' : '160%'};
+    // padding-bottom:  ${props => props.simple ? '100%' : '160%'};
 
     background-color: #00000000;
 
@@ -120,6 +127,7 @@ export const StyledBackgroundImage = styled(BackgroundImage)`
     }
 
 `
+
 
 
 export const IconContainer = styled.div`
@@ -149,42 +157,73 @@ export const IconContainer = styled.div`
 
 export const TextBottom = styled.div`
     width: 100%;
-    padding: 10px 0px 10px;
+    padding: 10px 0px 20px;
     bottom: 0px;
     color: #000;
-    text-align: ${props => props.simple ? 'center' : 'left'};
+    text-align: center;
     z-index: 1;
 ` 
 
 export const MainText = styled.div`
     border-radius: 0px!important;
     margin-bottom: 2px;
-    font-size: 0.9rem;
-    font-size: ${props => props.simple ? '0.85rem' : '1rem'};
-
+    font-size: 1.1rem;
     font-weight: 800;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 ` 
 
+export const SubText = styled.div`
+    border-radius: 0px!important;
+    margin-bottom: 2px;
+    font-size: 0.85rem;
+    opacity: 0.5;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+`
+
 export const FollowerText = styled.div`
     color: #000;
-    padding: 0px;
-    font-size: 0.85rem;
-    opacity: 0.4;
+    padding: 10px 0px;
+    opacity: 1;
+    font-size: 1.1rem;
+
+    div {
+        margin-top: -3px;
+        opacity: 0.5;
+        FONT-WEIGHT: 600;
+        font-size: 0.85rem;
+    }
+    b {
+        font-weight: 800;
+    }
 `
 export const PriceText = styled.p`
-    font-size: 0.8rem;
-    right: 15px;
-    z-index: 11;
-    margin: 7px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    text-align: right;
+    opacity: 1!important;
+    margin: 0px;
+    padding: 10px;
+
+    svg {
+        width: 16px;
+        fill: #a4a4a4;
+        float: left;
+        opacity: 0.5;
+    }
 
     small {
         opacity: 0.7;
+        font-size: 70%;
+        margin-right: 5px;
     }
 `
-
 export const BasicStats = styled.div`
     font-size: 70%;
     margin-top: 5px;

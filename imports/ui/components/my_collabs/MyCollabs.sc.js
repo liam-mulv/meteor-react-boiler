@@ -16,5 +16,5 @@ export const RightContentWrapper = styled.div`
 `
 
 export const LeftContentWrapper = styled.div`
-
+	max-width: ${props => props.isCollapsed && '90px'};
 `

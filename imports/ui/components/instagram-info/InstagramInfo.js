@@ -22,7 +22,7 @@ function HostInfo() {
 		                height="95%" 
 		                lazyLoad 
 		                className="influencer-bg-img" 
-		                src={"https://scontent-den4-1.cdninstagram.com/v/t51.2885-19/s320x320/65314773_332616907668004_2901286846950539264_n.jpg?_nc_ht=scontent-den4-1.cdninstagram.com&_nc_ohc=P61UYLKU7yEAX_-sVd5&oh=bc43c60cc74e4c85a5936b8568b64ab9&oe=5EC041D0"}
+		                src="https://cdn.shopify.com/s/files/1/0082/0795/8078/products/PeachesandCream-124.png?v=1578890685"
 		            />
 	            </DisplayPictureContainer>
 				<TextWrapper>

@@ -7,7 +7,10 @@ import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } 
 import StickyInfoSection from '../../components/sticky_info_section/StickyInfoSection'
 import ProfileInfo from '../../components/profile/ProfileInfo'
 import CollabContent from './CollabContent'
+import ApplyForCollab from '../../components/collab/ApplyForCollab'
+
 // Styled Components
+import {DashboardContainer} from '../home/Home.sc'
 import { PageContainer, PageFlexContainer, PageContent, FlexSpacer, ScrollElement  } from '../../common/Common.sc'
 
 
@@ -25,24 +28,27 @@ function CollabPage() {
 
 	return (
 		<React.Fragment>
-			<PageContainer>
-				<PageFlexContainer>
-					<StickyInfoSection 
-						sticky="60px" 
-						contentLeftPadding="0px 50px 0px 0px" 
-						contentRightPadding="0px 0px 0px 50px" 
-						contentLeftMaxWidth="420px"
-						contentLeftMinWidth="300px"
-						contentLeftFlex="0 0 25%"
-						isNoTitle={true}
-						border={true}
-						titlePadding="0px"
-						contentLeft={<ProfileInfo type="Brand" isLoading={dataIsLoading} isCollab={true}/>}
-					>
-					<CollabContent/>
-				</StickyInfoSection>
-				</PageFlexContainer>
-			</PageContainer>
+			<DashboardContainer marginTop="0px">
+				<PageContainer>
+					<PageFlexContainer maxWidth="1350px" padding="0px 35px">
+						<StickyInfoSection 
+							sticky="80px" 
+							contentLeftPadding="0px 0px 0px 0px" 
+							contentRightPadding="0px 50px 0px 0px" 
+							contentLeftMaxWidth="420px"
+							contentLeftMinWidth="420px"
+							contentRightMaxWidth="66.66%"
+							contentLeftFlex="0 0 25%"
+							isNoTitle={true}
+							border={false}
+							titlePadding="0px"
+							reverseDirection={true}
+							contentLeft={<ApplyForCollab isLoading={dataIsLoading}/>}>
+						<CollabContent quickNavStickyPosition="80px" stickyOffset="150px"/>
+					</StickyInfoSection>
+					</PageFlexContainer>
+				</PageContainer>
+			</DashboardContainer>
 		</React.Fragment>
 	)
 }

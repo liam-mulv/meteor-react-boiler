@@ -83,11 +83,13 @@ export const CollabListHeader = styled.h1`
 export const CollabListSubHeader = styled.h4`
 	margin: ${props => props.margin ? props.margin : '0px 0px 0px'};
     text-transform: uppercase;
-    font-size: 0.9rem;
-    padding: 15px 20px;
+    font-size: ${props => props.isCollapsed ? '0.75rem' :'0.9rem'};
+    padding: ${props => props.isCollapsed ? '15px 10px 15px 12px' : '15px 20px'};
     color: #00000052;
 	display: flex;
 	font-weight: 800;
+	text-align: ${props => props.isCollapsed && 'center'};
+
 	${props => !props.noBorder &&  'border-top: 1px solid #eee'};
 
 	:hover {

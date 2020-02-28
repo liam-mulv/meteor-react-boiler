@@ -13,8 +13,15 @@ export const ProfilePriceAndButtonWrapper = styled.div`
     position: relative;
     background-color: #fff;
     padding-top: 60px;
+
+    top: 50px;
+    margint-top: 20px;
+
     ${props => props.flex && 'display: flex;'};
 
+    border: 1px solid #eee;
+    padding: 25px 35px;
+    border-radius: 4px;
 
     h1 {
         font-size: 2rem!important;
@@ -35,7 +42,7 @@ export const ProfilePriceAndButtonWrapper = styled.div`
     }
 
     @media (min-width: 1100px) { 
-        padding: ${props => props.padding ? props.padding : "40px 76px 40px" };
+        padding: ${props => props.padding ? props.padding : "35px 25px" };
     }
 
     svg {
@@ -307,6 +314,41 @@ export const ProfileButtonContainer = styled.div`
         font-weight: 700;
         font-size: 1.1rem;
         margin: 13px 0px 0px 10px!important;
+    }
+`
+export const InviteButtonContainer = styled.div`
+    display: flex;
+    margin-top: 30px;
+
+
+    button {
+        position: relative;
+        border: 0px;
+        border-radius: 3px;
+        color: #fff;
+        padding: 15px 10px;
+        background-color: #222;
+        flex: 1;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+
+    button:hover {
+        cursor: pointer;
+    }
+
+
+    button div {
+        width: 40%;
+        left: -40%;
+        opacity: 0.65;
+        transition: all 0.5s linear;
+    }
+
+    button:hover div {
+        transform: skewX(20deg) translateX(600px);
     }
 `
 

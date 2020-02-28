@@ -7,6 +7,7 @@ import {
 	InfluencerTile, 
 	InfluencerTileInnerContainer,
 	InfluencerImg, 
+	DisplayPicture,
 	TextBottom, 
 	PriceText,
 	MainText, 
@@ -23,7 +24,7 @@ import {
 import MessageIcon from '../../icons/message'
 import PlusIcon from '../../icons/plus'
 import UserIcon from '../../icons/users'
-
+import HeartIcon from '../../icons/heart-solid'
 
 
 function Influencer(props) {
@@ -45,37 +46,35 @@ function Influencer(props) {
 					}
 
 					<Link to={"/profile/"+props.data.instagram_handle}>
-						<StyledBackgroundImage 
-						 	simple={props.simple} 
-							width="100%" 
-							height="100%" 
-							lazyLoad 
-							className="influencer-bg-img" 
-							src={props.data.profile_pic}
-						/>
+						<DisplayPicture>
+							<StyledBackgroundImage 
+							 	simple={props.simple} 
+								width="100%" 
+								height="100%" 
+								lazyLoad 
+								className="influencer-bg-img" 
+								src={props.data.profile_pic}
+							/>
+						</DisplayPicture>
 					</Link>
 
 					<TextBottom simple={props.simple}>
 						<Link to={"/profile/"+props.data.instagram_handle}>
-							<MainText simple={props.simple}>{props.data.instagram_handle}</MainText>
+							<MainText>{props.data.full_name}</MainText>
+							<SubText simple={props.simple}>{props.data.instagram_handle}</SubText>
 						</Link>
-						<FollowerText><b>{props.data.instagram_follow_count_formatted}</b> {!props.simple && 'followers'}</FollowerText>
-						{!props.simple &&
-							<React.Fragment>
-								<PriceText>
-						            <span><b>$3,000</b> / collab</span>
-						        </PriceText>
-								{/*<Tags>
-
-									{props.data.categories.length > 0 && props.data.categories.map((category, index) => {
-										return (
-											<Tag>#{category} </Tag>
-										)
-									})}
-								</Tags>*/}
-							</React.Fragment>
-						}
+						<FollowerText>
+							<b>{props.data.instagram_follow_count_formatted}</b> <br/> 
+							<div>followers</div>
+						</FollowerText>
 					</TextBottom>
+					{!props.simple &&
+						<React.Fragment>
+							<PriceText>
+					            <HeartIcon/> <span><small>RATE</small> <b>$500</b></span>
+					        </PriceText>
+						</React.Fragment>
+					}
 				</InfluencerTile>
 			</InfluencerTileInnerContainer>
 	</InfluencerWrapper>

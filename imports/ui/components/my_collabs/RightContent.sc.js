@@ -13,6 +13,11 @@ export const DragAndDropWrapper = styled.div`
 	   	flex: 1;
 	    max-width: 90px;
 	    margin: auto;
+	    padding: 20px;
+	    background-color: #eee;
+	    border-radius: 10px;
+	    opacity: 0.5;
+	    margin-bottom: 18px;
     }
 `
 

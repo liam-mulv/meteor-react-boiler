@@ -53,7 +53,7 @@ import UnorderedList from '../../components/unordered_list/UnorderedList'
 import Tags from '../../components/tags/Tags'
 import MapBox from '../../components/map/MapBox'
 import Footer from '../../components/footer/Footer'
-
+import SkeletonParagraph from '../../components/skeleton_paragraph/SkeletonParagraph'
 //Icons
 import PuzzleIcon from '../../icons/puzzle'
 import InstagramIcon from '../../icons/instagram'
@@ -61,6 +61,7 @@ import CommentIcon from '../../icons/comment'
 import CommentsIcon from '../../icons/comments'
 import BoxUsdIcon from '../../icons/box-usd'
 import CommentAltEditIcon from '../../icons/comment-alt-edit'
+import Carousel from '../../components/carousel/Carousel'
 
 // Data
 const req_list = [
@@ -130,6 +131,7 @@ export default class CollabContent extends  React.Component {
 
 
 	getScrollDuration (el) {
+		console.log('Fetching scroll duration')
 		let scrollTop = window.pageYOffset || document.documentElement.scrollTop
 		let elDistanceToTop = window.pageYOffset + el.current.getBoundingClientRect().top
 		let distanceFromElement
@@ -138,6 +140,7 @@ export default class CollabContent extends  React.Component {
 		} else {
 			distanceFromElement = elDistanceToTop - scrollTop
 		}
+		console.log(distanceFromElement / 2)
 		return distanceFromElement / 2
 	}
 
@@ -157,107 +160,70 @@ export default class CollabContent extends  React.Component {
 	  	const navigation_component = [
 	  		// { name: 'host', id: 'host-section', ref: this.hostSectionRef}, 
 	  		{ name: 'brief', id: 'brief-section', ref: this.briefSectionRef},
-	  		{ name: 'options', id: 'options-section', ref: this.optionsSectionRef}, 
 	  		{ name: 'mood board', id: 'mood-section', ref: this.moodBoardSectionRef},
-	  		{ name: 'requirements', id: 'requirements-section', ref: this.requirementsSectionRef}, 
-	  		{ name: 'features', id: 'features-section', ref: this.featureSectionRef},
 	  		{ name: 'reviews', id: 'reviews-section', ref: this.reviewSectionRef}, 
 	  		{ name: 'location', id: 'map-section', ref: this.mapSectionRef }, 
 	  		{ name: 'similar brands', id: 'similar-section', ref: this.similarBrandRef},
 	  	]
 
 		return (
-			<PageFlexContainer>
-							<React.Fragment>
-							<FlexSpacer height="40px"/>
-							<CollabHeader  type="COLLAB" title="Spring Time Fling" isLoading={isLoading} tags={tags} mapRef={this.mapSectionRef} getScrollDuration={this.getScrollDuration}/>
-							<FlexSpacer height="40px"/>
-							<QuickNav marginBottom="20px" navigation={navigation_component} getScrollDuration={this.getScrollDuration}/>
-							<FourAcross_ImageBanner images={top_banner_images} isLoading={isLoading}/>
-							<FlexSpacer height="60px"/>
+			<PageFlexContainer padding="0px">
+				<React.Fragment>
+					<FlexSpacer height="30px"/>
+					<CollabHeader  type="COLLAB" title="Spring Time Fling" isLoading={isLoading} tags={tags} mapRef={this.mapSectionRef} getScrollDuration={this.getScrollDuration}/>
+					<FlexSpacer height="30px"/>
+					<QuickNav padding="14px 0px" topBorder={true} stickyPosition={this.props.quickNavStickyPosition} marginBottom="20px" navigation={navigation_component} getScrollDuration={this.getScrollDuration} isLoading={isLoading}/>
+					<FourAcross_ImageBanner images={top_banner_images} isLoading={isLoading}/>
+					<FlexSpacer height="60px"/>
 
-							<ScrollElement name="brief-section" className="element" >
-								<div ref={this.briefSectionRef}>
-									<StickyInfoSection title="Brief" sticky="130px">
-										<React.Fragment>
-											<p>Lorem ipsum dolor sit amet, ne nam nonumy iisque prodesset. Erat perpetua mei at. Bonorum eruditi delectus mea id, copiosae expetenda consectetuer eu nam. Ex duo ponderum praesent voluptaria, eum fabulas facilis at. Sed te impedit electram deterruisset, ius in meliore adipiscing, esse pericula laboramus ex mei.</p>
-											<p>Erat perpetua mei at. Bonorum eruditi delectus mea id, copiosae expetenda consectetuer eu nam. Ex duo ponderum praesent voluptaria, eum fabulas facilis at. Sed te impedit electram deterruisset, ius in meliore adipiscing, esse pericula laboramus ex mei.</p>
-										</React.Fragment>
-									</StickyInfoSection>
-								</div>
-							</ScrollElement>
-							<FlexSpacer height="60px"/>
-							<ScrollElement name="options-section" className="element">
-								<div ref={this.optionsSectionRef}>
-									<StickyInfoSection title="Options" sticky="130px">
-										<FlexSpacer>
-											<FeatureCard icon={<InstagramIcon/>} tite="Instagram Post" text="Create an Instagram Post"/>
-											<FeatureCard icon={<PuzzleIcon/>} tite="Instagram Story" text="Create an Instagram Story"/>
-										</FlexSpacer>
-									</StickyInfoSection>
-								</div>
-							</ScrollElement>
-							<FlexSpacer height="60px"/>
-							<ScrollElement name="mood-section" className="element">
-								<div ref={this.moodBoardSectionRef}>
-									<Collage_ImageBanner title="Mood Board" images={mood_board} isLoading={isLoading}/>
-								</div>
-							</ScrollElement>
-							<FlexSpacer height="60px"/>
-							<ScrollElement name="requirements-section" className="element">
-								<div ref={this.requirementsSectionRef}>
-									<StickyInfoSection title="Requirements" sticky="130px">
-											<UnorderedList items={req_list}/>
-											<FlexSpacer height="20px"/>
-											<Tags title='Required Tags' tags={tags}/>
-											<FlexSpacer height="20px"/>
-											<Tags title='Required Mentions' tags={mentions}/>
-									</StickyInfoSection>
-								</div>
-							</ScrollElement>
-							<FlexSpacer height="60px"/>
-							<ScrollElement name="features-section" className="element">
-								<div ref={this.featureSectionRef}>
-									<StickyInfoSection title="Features" sticky="130px">
-										<FlexSpacer>
-											<FeatureCard icon={<CommentIcon/>} iconWidth="35px" tite="Private Chat" text="Chat directly with the collab host"/>
-											<FeatureCard icon={<CommentsIcon/>} tite="Group Chat" text="Chat with all collab participants"/>
-										</FlexSpacer>
-										<FlexSpacer>
-											<FeatureCard icon={<BoxUsdIcon/>} tite="Auto-payment" text="Payment within 2 hours of posting"/>
-											<FeatureCard icon={<CommentAltEditIcon/>} tite="Guaranteed Review" text="All collaborators will receive a review upon completion"/>
-										</FlexSpacer>
-									</StickyInfoSection>
-								</div>
-							</ScrollElement>
-							<FlexSpacer height="60px"/>
-							<ScrollElement name="reviews-section" className="element">
-								<div ref={this.reviewSectionRef}>
-									<StickyInfoSection title="Reviews" sticky="130px" subHeader={<StarRating/>}>
-										<React.Fragment>
-											<Reviews isLoading={isLoading} reviews={reviews} showStaticHeader={false}/>
-										</React.Fragment>
-									</StickyInfoSection>
-								</div>
-							</ScrollElement>
-							<FlexSpacer height="60px"/>
-							<ScrollElement name="map-section" className="element">
-								<div ref={this.mapSectionRef}>
-									<MapBox title="Collab Location"/>
-								</div>
-							</ScrollElement>	
-							<FlexSpacer height="60px"/>
-							<ScrollElement name="similar-section" className="element">
-								<div ref={this.similarBrandRef}>
-									<List title="Similar Collabs" simple={true} length={8} view_more={true} type="collabs" headerFontSize={'2rem'} headerIsSticky={false} headerPadding="15px 0px 5px"/>
-								</div>
-							</ScrollElement>
-							<PageContent>
-								<Footer/>
-								<StickyApplyFooter isLoading={isLoading} isStuck={quickNavIsStuck}/>
-							</PageContent>
-						</React.Fragment>
-					</PageFlexContainer>
+					<ScrollElement name="brief-section" className="element" >
+						<div ref={this.briefSectionRef}>
+							<StickyInfoSection title="Brief" sticky={this.props.stickyOffset ? this.props.stickyOffset : "130px"}>
+								{!isLoading ? 
+									<React.Fragment>
+										<p>Lorem ipsum dolor sit amet, ne nam nonumy iisque prodesset. Erat perpetua mei at. Bonorum eruditi delectus mea id, copiosae expetenda consectetuer eu nam. Ex duo ponderum praesent voluptaria, eum fabulas facilis at. Sed te impedit electram deterruisset, ius in meliore adipiscing, esse pericula laboramus ex mei.</p>
+										<p>Erat perpetua mei at. Bonorum eruditi delectus mea id, copiosae expetenda consectetuer eu nam. Ex duo ponderum praesent voluptaria, eum fabulas facilis at. Sed te impedit electram deterruisset, ius in meliore adipiscing, esse pericula laboramus ex mei.</p>
+									</React.Fragment>
+								: 
+									<SkeletonParagraph 
+										numberOfLines={6}
+									/>
+								}
+							</StickyInfoSection>
+						</div>
+					</ScrollElement>
+
+					<FlexSpacer height="60px"/>
+					<ScrollElement name="mood-section" className="element">
+						<div ref={this.moodBoardSectionRef}>
+							<Collage_ImageBanner title="Mood Board" images={mood_board} isLoading={isLoading}/>
+						</div>
+					</ScrollElement>
+					<FlexSpacer height="60px"/>
+					<ScrollElement name="reviews-section" className="element">
+						<div ref={this.reviewSectionRef}>
+							<StickyInfoSection title="Reviews" sticky={this.props.stickyOffset ? this.props.stickyOffset : "130px"} subHeader={<StarRating/>}>
+								<React.Fragment>
+									<Reviews isLoading={isLoading} reviews={reviews} showStaticHeader={false}/>
+								</React.Fragment>
+							</StickyInfoSection>
+						</div>	
+					</ScrollElement>
+					<FlexSpacer height="60px"/>
+					<ScrollElement name="map-section" className="element">
+						<MapBox title="Location"/>
+					</ScrollElement>	
+					<FlexSpacer height="60px"/>
+					<ScrollElement name="similar-section" className="element">
+						<div ref={this.similarBrandRef}>
+							<Carousel isLoading={isLoading} title="Similar" type="collabs" simple={false}/>
+						</div>
+					</ScrollElement>
+					<PageContent>
+						<Footer/>
+					</PageContent>
+				</React.Fragment>
+			</PageFlexContainer>
 		)
 	}
 }

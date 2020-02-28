@@ -4,10 +4,12 @@ export const ReactTagsWrapper = styled.div`
     position: relative;
     width: 100%;
     display: inline-flex;
+    display: flex;
+    align-items: center;
 
     h4 {
         margin: 3px 0px;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 `
 

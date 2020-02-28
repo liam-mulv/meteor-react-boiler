@@ -35,7 +35,9 @@ export const StyledScrollbars = styled(Scrollbar)`
 `
 
 export const DashboardContainer = styled.div`
-    margin-top: 62px;
+	margin: 0 auto;
+
+    margin-top: ${props => props.marginTop ? props.marginTop : '62px'};
     padding: 0px 0px 0px 0px;
 
     ::-webkit-scrollbar {

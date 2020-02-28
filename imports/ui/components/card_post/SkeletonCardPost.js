@@ -15,8 +15,8 @@ function SkeletonCardPost(props) {
         <SkeletonPostTile>
           <SkeletonPostImage/>
         </SkeletonPostTile>
-        <SkeletonPostIcons/>
-      </SkeletonPostTileInnerContainer>
+{/*        <SkeletonPostIcons/>
+*/}      </SkeletonPostTileInnerContainer>
     </SkeletonPostWrapper>
   )
 }

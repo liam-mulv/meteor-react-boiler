@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { BackgroundImage } from "react-image-and-background-image-fade";
 
 export const HostInfoWrapper = styled.div`
-    padding: 55px 0px 0px;
+
 `
 
 export const StyledBackgroundImage = styled(BackgroundImage)`

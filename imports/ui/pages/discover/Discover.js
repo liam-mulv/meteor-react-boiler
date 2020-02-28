@@ -14,6 +14,7 @@ import List from '../../components/list/List'
 import StickyInfoSection from '../../components/sticky_info_section/StickyInfoSection'
 import Footer from '../../components/footer/Footer'
 import FilterMenu from '../../components/filter_menu/FilterMenu'
+import CollabContent from '../collab/CollabContent'
 
 
 
@@ -60,10 +61,10 @@ function DiscoverPage() {
 
 	return (
 		<React.Fragment>
-			<DashboardContainer>
+			<DashboardContainer marginTop="0px">
 				<PageFlexContainer>
 					<StickyInfoSection 
-						sticky="60px" 
+						sticky="80px" 
 						contentLeftPadding="0px 20px 0px 1px" 
 						contentRightPadding="0px 0px 0px 30px" 
 						width="280px"
@@ -77,7 +78,7 @@ function DiscoverPage() {
 						contentLeftFlex="0 0 25%"
 						>
 							<Spacer margin="20px"/>
-							<List title="350+ " filter={true} length={10} headerIsSticky={true} type={dataSet} isLoading={dataIsLoading}/>
+							<List title="350+ " filter={true} length={10} headerIsSticky={true} stickyPosition="80px" type={dataSet} isLoading={dataIsLoading}/>
 					</StickyInfoSection>
 				</PageFlexContainer>	
 			</DashboardContainer>

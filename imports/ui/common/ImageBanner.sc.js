@@ -4,7 +4,7 @@ export const ImageBannerWrapper = styled.div`
     h1 {
         margin-top: 0px;
         font-size: 2rem;
-        margin-bottom: 13px;
+        margin-bottom: 17px;
     }
 `
 
@@ -14,6 +14,14 @@ export const JigsawColumnLeft = styled.div`
 
     button:last-child {
         padding-top: 133.333%!important;
+    }
+
+    video {
+        object-fit: cover!important;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
     }
 `
 
@@ -37,6 +45,7 @@ export const JigsawContainer = styled.div`
 	}
 
     div:last-child {
+        z-index: 0!important;
         margin-right: 0px!important;
     }
 `
@@ -97,6 +106,8 @@ export const JigsawColumnLeftMiddle = styled.div`
     button {
     	padding-top: 75%!important;
     }
+
+
 `
 
 export const JigsawColumnRightMiddle = styled.div`

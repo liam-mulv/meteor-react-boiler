@@ -5,11 +5,8 @@ export const StickyInfoSectionContainer = styled.div`
     display: flex;
     width: 100%;
     padding: 0px;
-
- 	// p {
-  //       font-size: 1.2rem;
-  //       margin: 0px 0px 15px;
- 	// }
+    ${props => props.reverseDirection && "flex-direction: row-reverse"};
+ 	
 `
 
 export const StickyTitle = styled.div`
@@ -37,7 +34,7 @@ export const StickyTitle = styled.div`
 
     ${props => props.isNoTitle &&`
         overflow: scroll;
-        height: calc(100vh - 62px);
+        height: calc(100vh - 81px);
 
         ::-webkit-scrollbar {
             opacity: 0;
@@ -75,6 +72,15 @@ export const ContentRight = styled.div`
     width: 100%;
     padding: ${props => props.padding ? props.padding : '0px'};
     border-left: ${props => props.border ? '1px solid #eee' : '0px'};
+    max-width: ${props => props.contentRightMaxWidth && props.contentRightMaxWidth};
+
+     > p:first-child {
+        margin: 0px 0px 15px;
+    }
+
+    > p {
+        font-size: 1.1rem;
+    }
 
     h1, h2, h3, h4 {
     	font-weight: 800!important;

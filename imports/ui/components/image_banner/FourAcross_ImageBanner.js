@@ -53,13 +53,9 @@ function ProfileTopImageJigsaw(props) {
 								</JigsawColumnLeft>
 								<JigsawColumnLeft>
 									<button>
-										<ImageCoverWrapper>
-										    <LazyBackgroundImage 
-								              width="100%" 
-								              height="100%" 
-								              lazyLoad 
-								              src={props.images[2]}							            />
-										</ImageCoverWrapper>
+										<video class="_e2l2kr" autoplay="" crossorigin="anonymous" loop="true" playsinline="" muted preload="metadata">
+											<source src="/videos/video-snippet.mp4" type="video/mp4"/>
+										</video>
 									</button>
 								</JigsawColumnLeft>
 								<JigsawColumnLeft>
@@ -69,7 +65,7 @@ function ProfileTopImageJigsaw(props) {
 								              width="100%" 
 								              height="100%" 
 								              lazyLoad 
-								              src={props.images[3]}							            />
+								              src={props.images[2]}							            />
 										</ImageCoverWrapper>
 									</button>
 								</JigsawColumnLeft>

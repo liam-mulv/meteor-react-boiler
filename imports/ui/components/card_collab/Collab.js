@@ -29,23 +29,13 @@ import {
 import CheckSolid from '../../icons/check-solid'
 import StarSolid from '../../icons/star-solid'
 import InstagramIcon from '../../icons/instagram'
-
+import HeartIcon from '../../icons/heart-solid'
 
 function Collab(props) {
   return (
     <CollabWrapper simple={props.simple} list={props.list} className="collabWrapper">
       <CollabTileInnerContainer>
         <CollabContentsWrapper>
-            <TextBottom color={props.data.color} isDark={props.data.color_is_dark}>
-              <CollabHostTextWrapper>
-                <CollabHostIcon image={props.data.profile_pic}/>
-                <Link to={"/profile/"+props.data.instagram_handle}><CollabHostMainText>{props.data.instagram_handle}</CollabHostMainText></Link>
-                <CollabHostSubText>{props.data.instagram_info}</CollabHostSubText>
-              </CollabHostTextWrapper>
-              <Rating>
-                <StarSolid/> <strong>9.6</strong> <span>(22)</span>
-              </Rating>
-            </TextBottom>
 
           <Link to={`/collab/${props.data.title}`}>
             <CollabTile>
@@ -65,15 +55,21 @@ function Collab(props) {
             </CollabTile>
           </Link>
 
+          <TextBottom color={props.data.color} isDark={props.data.color_is_dark}>
+            <CollabHostTextWrapper>
+              <CollabHostIcon image={props.data.profile_pic}/>
+              <Link to={"/profile/"+props.data.instagram_handle}><CollabHostMainText>{props.data.instagram_handle}</CollabHostMainText></Link>
+              <CollabHostSubText>{props.data.instagram_info}</CollabHostSubText>
+            </CollabHostTextWrapper>
+            <Rating>
+              <StarSolid/> <strong>9.6</strong> <span>(22)</span>
+            </Rating>
+          </TextBottom>
           <CollabTextWrapper>
-            <h3>{props.data.title}</h3>
-            <InstagramIcon/>
-  {/*          <p>{props.data.description}</p>
-  */}          {!props.simple &&
-              <PriceText>
-                <span>from <b>${props.data.price} USD</b> / collab</span>
-              </PriceText>
-            }
+{/*            <h3>{props.data.title}</h3>
+*/}            <InstagramIcon/>
+            <p>{props.data.description}</p>
+           
             <Tags>
               {props.data.tags.length > 0 && props.data.tags.map((tag, index) => {
                 return (
@@ -82,6 +78,9 @@ function Collab(props) {
               })}
             </Tags>
           </CollabTextWrapper>
+          <PriceText>
+            <HeartIcon/><span><small>STARTING AT</small> <b>${props.data.price}</b></span>
+          </PriceText>
         </CollabContentsWrapper>
       </CollabTileInnerContainer>
     </CollabWrapper>

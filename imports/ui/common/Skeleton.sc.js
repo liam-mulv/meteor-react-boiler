@@ -48,6 +48,7 @@ export const SkeletonText = styled(SkeletonPulse)`
     float: ${props => props.float !== 'none' ? 'left' : 'none'};
     clear: both;
     height: ${props => props.height && props.height};
+    border-radius: ${props => props.borderRadius ? props.borderRadius : '0px'};
 
 `
 

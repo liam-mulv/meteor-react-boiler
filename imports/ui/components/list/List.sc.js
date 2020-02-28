@@ -28,7 +28,7 @@ export const RowWrapper = styled.div`
 
 export const ListHeaderWrapper = styled.div`
     position: ${props => !props.headerIsSticky ? 'initial' : 'sticky'};
-    top: 60px;
+    top: ${props => props.stickyPosition ? props.stickyPosition : '60px'};
     z-index: 2;
 `
 
@@ -44,7 +44,7 @@ export const ListHeader = styled.div`
 
     h1 {
         font-size: ${props => props.headerFontSize && props.headerFontSize};
-        padding: 0px 0px 5px!important;
+        padding: 0px 0px 10px!important;
     }
 
     // @media (min-width: 1100px) { 
@@ -60,8 +60,8 @@ export const StickyHeaderShadow = styled.div`
     position: -webkit-sticky;
     position: -webkit-sticky;
     position: sticky;
-    top: 112px;
-    margin: 0px auto -2px;
+    top: 131px;
+    margin: 0px auto -4px;
     display: ${props => !props.headerIsSticky ? 'none' : 'block'};
 
 `

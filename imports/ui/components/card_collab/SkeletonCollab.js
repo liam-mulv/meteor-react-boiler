@@ -20,30 +20,38 @@ import {
   CollabHostIcon,
   Rating,
   CollabContentsWrapper,
-  CollabTextWrapper
+  CollabTextWrapper,
+  PriceText
 } from './Collab.sc'
+import HeartIcon from '../../icons/heart-solid'
 
 function SkeletonCollab(props) {
     return (
         <SkeletonCollabWrapper simple={props.simple} className="collabWrapper">
           <SkeletonCollabTile>
             <SkeletonCollabContentsWrapper>
-              <TextBottom>
+             
+              <SkeletonCollabImage/>
+               <TextBottom>
                 <CollabHostTextWrapper>
-                  <CollabHostIcon><SkeletonPulseTwo/></CollabHostIcon>
-                  <SkeletonCollabHostMainText>
-                    <SkeletonText height="15px" width="40%" float="left"/>
-                  </SkeletonCollabHostMainText>
+                  <CollabHostIcon>
+                    <SkeletonPulseTwo/>
+                  </CollabHostIcon>
+                  <SkeletonText height="15px" width="40%" float="left"/>
                 </CollabHostTextWrapper>
               </TextBottom>
-              <SkeletonCollabImage/>
               <CollabTextWrapper>
-                <SkeletonCollabTitle/>
-                <SkeletonCollabDescription/>
+                <SkeletonText margin="5px 0px 0px" height="15px" width="100%" float="left"/>
+                <SkeletonText margin="10px 0px 20px" height="15px" width="80%" float="left"/>
                 <SkeletonCollabTags/><SkeletonCollabTags/>
               </CollabTextWrapper>
+              <PriceText>
+                  <HeartIcon/>
+                    <SkeletonText margin="6px 0px" height="15px" width="40%" float="left"/>
+              </PriceText>
             </SkeletonCollabContentsWrapper>
           </SkeletonCollabTile>
+
         </SkeletonCollabWrapper>
       )
 }

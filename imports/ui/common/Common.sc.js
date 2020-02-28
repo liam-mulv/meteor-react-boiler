@@ -15,6 +15,8 @@ export const PageContainer = styled.div`
 `
 
 export const PageFlexContainer = styled.div`
+    margin: auto;
+    max-width: ${props => props.maxWidth && props.maxWidth};
     padding: ${props=> props.padding ? props.padding : '0px 35px'};
 `
 
@@ -54,6 +56,7 @@ export const LazyBackgroundImage = styled(BackgroundImage)`
     background-position: center;
     width: 100%;
     height: 100%;
+    z-index: 0!important;
 `
 
 

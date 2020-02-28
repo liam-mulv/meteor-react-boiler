@@ -32,7 +32,7 @@ export const InfoDescription = styled.div`
 export const CollabInfoRight = styled.div`
     position: absolute;
     right: 0px;
-    bottom: 0px;
+    bottom: 12.5px;
     text-align: right;
 
     h1 {
@@ -66,6 +66,7 @@ export const CollabInfoLeft = styled.div`
     h1 {
         font-weight: 900;
         margin: 10px 0px 20px;
+        font-size: 2.5rem;
     }
 
     h4:last-child {
@@ -184,6 +185,36 @@ export const LocationLink = styled.div`
     z-index: 2;
     opacity: 1;
     color: #808080;
+`
+
+export const CollabHostInfoWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    display: inline-flex;
+    height: 50px;
+    margin-top: 15px;
+
+    div:first-child {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+
+    p {
+        font-weight: 700;
+        opacity: 1;
+        margin: 0px 5px 0px 10px;
+        font-size: 1.1rem;
+    }
+
+    span {
+        padding:0px; 10px;
+        opacity: 0.5;
+    }
+
+    svg {
+        fill: #000;
+    }
 `
 
 

@@ -32,52 +32,6 @@ export const MessageWindow = styled.div`
     }
 `
 
-export const MessageWindowHeader = styled.h1`
-    padding: 8px 10px!important;
-    font-size: 16px!important;
-    font-weight: 800;
-    position: sticky;
-    top: 0px;
-    background-color: #fff;
-    z-index: 111;
-    display: inline-flex;
-    align-items: center;
-    width: calc(100% - 20px)!important;
-    margin: 0px;
-
-    > div {
-        margin-left: 10px;
-    }
-
-
-    div {
-        border: 0px!important;
-    }
-
-    span {
-        margin-left: 12px;
-    }
-
-    ::after {
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .10);
-        content: '';
-        height: 10px;
-        left: 0;
-        opacity: 1;
-        position: absolute;
-        top: 50px;
-        transition: opacity .25s ease-out;
-        width: 100%;
-    }
-`
-
-export const MessageWindowIcon = styled.div`
-    border: 1px solid #f2f2f2;
-    border-radius: 50%;
-    padding: 2px;
-    width: ${props => props.dimensions ? props.dimensions : '45px'};
-    height: ${props => props.dimensions ? props.dimensions : '45px'};
-`
 
 // Message
 
@@ -207,7 +161,7 @@ export const Message = styled.div`
     `}
 
     ${props => props.notification && `
-        background-color: #f1f0f0!important;
+        background-color: #fff!important;
         color: #000!important;
         font-weight: 700;
         margin: 1px auto;

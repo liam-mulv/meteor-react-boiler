@@ -65,6 +65,7 @@ function LeftContent(props) {
 		}
 	}
 
+
 	return (
 		<LeftContentWrapper>
 			<CollabListHeader>
@@ -76,11 +77,11 @@ function LeftContent(props) {
 		                src="https://www.raconteur.net/wp-content/uploads/2019/03/shutterstock_1135973729.jpg"
 		            />
 	            </CollabListItemIcon>	
-	            <span>My Collabs</span>
+	            {!props.isCollapsed && <span>My Collabs</span>}
 			</CollabListHeader>
 			<CollabListWrapper>
 
-				<CollabListSubHeader type="active" noBorder={true} onClick={() => toggleList('active')}>Active<span>2</span></CollabListSubHeader>
+				<CollabListSubHeader isCollapsed={props.isCollapsed} type="active" noBorder={true} onClick={() => toggleList('active')}>Active{!props.isCollapsed && <span>2</span>}</CollabListSubHeader>
 				<CollabList height={activeListIsOpen && 2 * 64 + 20}>
 					{props.collabs.slice(0,2).map((collab, index) => {
 						return (
@@ -90,7 +91,7 @@ function LeftContent(props) {
 						)
 					})}
 				</CollabList>
-				<CollabListSubHeader type="completed" onClick={() => toggleList('completed')}>Complete<span>3</span></CollabListSubHeader>
+				<CollabListSubHeader isCollapsed={props.isCollapsed} type="completed" onClick={() => toggleList('completed')}>Complete{!props.isCollapsed && <span>3</span>}</CollabListSubHeader>
 				<CollabList height={completedListIsOpen && 4 * 64 + 20}>
 					{props.collabs.slice(2,6).map((collab, index) => {
 						return (
@@ -100,7 +101,7 @@ function LeftContent(props) {
 						)
 					})}
 				</CollabList>
-				<CollabListSubHeader type="closed" onClick={() => toggleList('closed')}>Closed<span>1</span></CollabListSubHeader>
+				<CollabListSubHeader isCollapsed={props.isCollapsed} type="closed" onClick={() => toggleList('closed')}>Closed{!props.isCollapsed && <span>1</span>}</CollabListSubHeader>
 				<CollabList height={closedListIsOpen && 2 * 64 + 20}>
 					{props.collabs.slice(6,9).map((collab, index) => {
 						return (

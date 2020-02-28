@@ -9,32 +9,29 @@ export const QuickNavShadow = styled.div`
     height: 2px;
     z-index: 2;
     position: -webkit-sticky;
-    position: sticky;
+    position: ${props => props.notSticky ? 'initial' : 'sticky'};
     top: 111px;
     margin: 0px auto -5px;
 `
 
 
 export const QuickNavWrapper = styled.div`
-    position: sticky;
-    top: 60px;
+    position: ${props => props.notSticky ? 'initial' : 'sticky'};
+    top: ${props => props.stickyPosition ? props.stickyPosition : '60px'};
     background-color: #fff;
     z-index: 11111;
     z-index: 3;
-    height: 54px;
+    height: 50px;
     
     margin-bottom: ${props => props.marginBottom && props.marginBottom};
 `
 
 export const QuickNavContainer = styled.div`
-    width: 100%;
-
-    padding: 18px 0px 14px;
-    border-top: 1px solid #eee;
+    padding: ${props => props.padding ? props.padding : '14px 35px 10px'};
+    border-top:  ${props => props.topBorder ? '1px solid #eee' : '0px'};
     border-bottom: 1px solid #eee;
     height: 21px;
-    
-    font-weight: 700;
+    font-weight: 600;
 
     #quick-nav-item-0 {
 	    margin-left: 0px;
@@ -44,6 +41,10 @@ export const QuickNavContainer = styled.div`
     .active .active-marker:first-child {
         background-color: #000;
     }
+
+    .active div {
+        color: #000;
+    }
     :hover {
         text-decoration: none!important;
     }
@@ -51,10 +52,11 @@ export const QuickNavContainer = styled.div`
 
 export const QuickNavItem = styled.div`
 	display: inline-block;
-    margin: 0px 16px;
-    text-transform: uppercase;
+    margin: 0px 12px;
+    text-transform: capitalize;
     position: relative;
-    font-size: 0.9rem;
+    font-size: 16px;
+    color: #7a7d85;
 
     :hover {
         cursor: pointer;
@@ -67,5 +69,5 @@ export const ActiveMarker = styled.div`
     height: 3px;
     background-color: rgba(0,0,0,0);
     position: absolute;
-    bottom: -16px;
+    bottom: -14px;
 `

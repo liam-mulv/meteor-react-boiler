@@ -3,48 +3,46 @@ import { BackgroundImage } from "react-image-and-background-image-fade";
 
 
 export const CollabWrapper = styled.div`
-    display: inline-block !important;
-    vertical-align: top !important;
-    white-space: normal !important;
 
+    position: relative;
 
     ${props => props.simple ?
         `@media (max-width: 2400px) { 
-            width: calc(100% / 5);
+            flex: 0 0 20%;    
         }
         @media (max-width: 1880px) { 
-            width: calc(100% / 4);
+            flex: 0 0 25%;    
         }
 
-        @media (max-width: 1440px) { 
-            width: calc(100% / 3);
+        @media (max-width: 1640px) { 
+            flex: 0 0 25%;    
         }
 
         @media (max-width: 1128px) { 
-            width: calc(100% / 2);
+            flex: 0 0 33.33%;    
         }
 
         @media (max-width: 744px) { 
-            width: calc(100% / 1);
+            flex: 0 0 33.33%;    
         }`
     : 
         `@media (max-width: 2400px) { 
-            width: calc(100% / 5);
+            flex: 0 0 20%;    
         }
         @media (max-width: 1880px) { 
-            width: calc(100% / 4);
+            flex: 0 0 25%;    
         }
 
-        @media (max-width: 1440px) { 
-            width: calc(100% / 3);
+        @media (max-width: 1640px) { 
+            flex: 0 0 25%;    
         }
 
         @media (max-width: 1128px) { 
-            width: calc(100% / 2);
+            flex: 0 0 33.33%;    
         }
 
         @media (max-width: 744px) { 
-            width: calc(100% / 1);
+            flex: 0 0 33.33%;    
         }`
 
     };
@@ -56,12 +54,12 @@ export const CollabWrapper = styled.div`
 export const CollabContentsWrapper = styled.div`
     border: 1px solid #eee;
     // box-shadow: 0px 2px 0px #eee;
-    border-radius: 5px;
+    border-radius: 2px;
 `
 
 
 export const CollabTileInnerContainer = styled.div`
-    padding: 8px 8px 30px;
+    padding: 8px 12px 30px;
 `
 
 export const CollabTile = styled.div`
@@ -70,11 +68,12 @@ export const CollabTile = styled.div`
     position: relative;
     border-radius: 0px;
     height: 100%;
+    position: relative;
 
     ::before {
         font-weight: 800;
         text-align: center;
-	    content: 'View Collab';
+	    // content: 'View Collab';
 	    position: absolute;
         padding-top: 25%;
 	    top: 0;
@@ -105,11 +104,6 @@ export const CollabTile = styled.div`
         transition: 0.3s;
         opacity: 1;
         width: 95px;
-    }
-
-    :hover::before {
-        background-color: #00000080;
-        opacity: 1;
     }
 `
 
@@ -187,13 +181,13 @@ export const CollabImg = styled.div`
 
 export const CollabTextWrapper = styled.div`
     background-color: #ffffff;
-    padding: 10px;
+    padding: 0px 10px 10px;
     width: calc(100% - 20px);
     border-radius: 0px 0px 5px 5px;
     margin-top: 0px;
     z-index: 0;
-    overflow: hidden;
     position: relative;
+    overflow: auto;
 
     svg {
         width: 15px;
@@ -201,6 +195,7 @@ export const CollabTextWrapper = styled.div`
         top: 14px;
         right: 10px;
         opacity: 0.4;
+        display: none;
     }
 
     h3 {
@@ -222,16 +217,17 @@ export const CollabTextWrapper = styled.div`
     }
 
     p {
-        font-size: 0.85rem;
+        font-size: 1rem;
         color: #000000;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         z-index: 1;
-        width: calc(100% - 1px);
-        margin: 7px 0px 10px;
-        opacity: 0.4;
+        min-width: 0;
+        opacity: 0.75;
+        margin: 0px 0px 15px;
         line-height: 1.2rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
     }
 `
 
@@ -245,7 +241,7 @@ export const TextBottom = styled.div`
     z-index: 1;
     display: flex;
     background-color:#fff;
-
+    overflow: auto;
     // background-color: ${props => props.color ? props.color : '#fff'};
     // color: ${props => props.isDark ? "#fff" : '#000'}!important;
 
@@ -268,8 +264,8 @@ export const TextBottom = styled.div`
 export const CollabHostIcon = styled.div`
     background-size: cover;
     background-position: center;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     background-image: url('${props => props.image && props.image}');
     float: left;
@@ -283,12 +279,11 @@ export const CollabHostMainText = styled.div`
     margin-bottom: 0px;
     text-align: left;
     font-size: 0.9rem;
-    font-weight: 800;
-    height: 30px;
-    line-height: 30px
+    font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 120px;
 `
 
 export const CollabHostSubText = styled.div`
@@ -302,10 +297,25 @@ export const CollabHostSubText = styled.div`
 `
 
 export const PriceText = styled.p`
+    border-top: 1px solid #eee;
+    text-align: right;
     opacity: 1!important;
-
+    margin: 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 20px);
+    svg {
+        width: 16px;
+        fill: #a4a4a4;
+        float: left;
+        opacity: 0.5;
+    }
+    
     small {
         opacity: 0.7;
+        font-size: 70%;
+        margin-right: 5px;
     }
 `
 
@@ -332,24 +342,35 @@ export const Tag = styled.div`
 
 export const CollabHostTextWrapper = styled.div`
     flex: 1;
+    min-width: 0; /* this one right here does it!*/
+    display: flex;
+    align-items: center;
+
 `
 
 export const Rating = styled.div`
     text-align: right;
     font-size: 0.8rem;
     font-weight: 700;
-    height: 30px;
-    line-height: 30px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+
 
     span {
         opacity: 0.5;
     }
 
+    strong {
+        margin-right: 4px;
+    }
+
     svg {
-        width: 10px;
+        width: 12px;
+        margin-right: 2px;
+        margin-top: -4px;
     }
 `
 

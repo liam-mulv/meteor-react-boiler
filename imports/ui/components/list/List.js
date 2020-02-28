@@ -59,6 +59,7 @@ export default class List extends React.Component {
 	}
 
 	async componentDidMount() {
+		console.log(this.props.type)
 		window.addEventListener('scroll',  this.checkScroll)
 		this.setState({dataSet: typeof this.props.type !== 'undefined' ? this.props.type : 'collabs'})
 		setTimeout(() => {
@@ -82,7 +83,7 @@ export default class List extends React.Component {
 	    const html = document.documentElement;
 	    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
 	    const windowBottom = windowHeight + window.pageYOffset;
-	    if (windowBottom + 100 >= docHeight) {
+	    if (windowBottom + 100 >= docHeight && !this.props.dontLoadMore) {
 	    	let moreCollabs = this.state.collabs.concat(data.collab_data)
 	    	this.setState({collabs:moreCollabs})
 	    }
@@ -120,34 +121,34 @@ export default class List extends React.Component {
 	renderTitle = () => {
 		const {posts, collabs, influencers, dataSet, location, isSelectingLocation, isSelectingCategory, isSelectingType, isSelectingFilter, isSelectingPrice, isSelectingFollower} = this.state
 		return (
-			<ListHeaderWrapper headerIsSticky={this.props.headerIsSticky}>
+			<ListHeaderWrapper headerIsSticky={this.props.headerIsSticky} stickyPosition={this.props.stickyPosition}>
 					<StickyHeaderShadow headerIsSticky={this.props.headerIsSticky}/>
 					<ListHeader headerPadding={this.props.headerPadding} headerIsSticky={this.props.headerIsSticky} simple={this.props.simple}  similarList={this.props.similarList} headerFontSize={this.props.headerFontSize}>
-							{this.props.simple || this.props.similarList ?
-								<RowTitle>
-									{this.props.title} {!this.props.simple && !this.props.similarList && dataSet + ' found'}
-									<span>{this.props.subTitle}</span>
-								</RowTitle>
-							:
-								undefined
-							}
-							{!this.props.simple && this.props.filter &&
-								<FilterBy 
-									isLoading={this.props.isLoading}
-									location={location}
-									dataSet={dataSet} 
-									toggleLocation={this.toggleLocation}
-									toggleDataSet={this.toggleDataSet} 
-									isSelectingPrice={isSelectingPrice} 
-									isSelectingFilter={isSelectingFilter} 
-									isSelectingLocation={isSelectingLocation} 
-									isSelectingCategory={isSelectingCategory} 
-									isSelectingType={isSelectingType} 
-									isSelectingFollower={isSelectingFollower}
-									toggleFilter={this.toggleFilter}
-									closeAllFilters={this.closeAllFilters}
-								/>
-							}
+						{this.props.simple || this.props.similarList ?
+							<RowTitle>
+								{this.props.title} {!this.props.simple && !this.props.similarList && dataSet + ' found'}
+								<span>{this.props.subTitle}</span>
+							</RowTitle>
+						:
+							undefined
+						}
+						{!this.props.simple && this.props.filter &&
+							<FilterBy 
+								isLoading={this.props.isLoading}
+								location={location}
+								dataSet={dataSet} 
+								toggleLocation={this.toggleLocation}
+								toggleDataSet={this.toggleDataSet} 
+								isSelectingPrice={isSelectingPrice} 
+								isSelectingFilter={isSelectingFilter} 
+								isSelectingLocation={isSelectingLocation} 
+								isSelectingCategory={isSelectingCategory} 
+								isSelectingType={isSelectingType} 
+								isSelectingFollower={isSelectingFollower}
+								toggleFilter={this.toggleFilter}
+								closeAllFilters={this.closeAllFilters}
+							/>
+						}
 					</ListHeader>
 			</ListHeaderWrapper>
 		)
@@ -190,8 +191,7 @@ export default class List extends React.Component {
 		    			{!this.props.noTitle && this.renderTitle()}
 			        	
 						<FlexRow counterPaddingWidth={true} browse='collabs' simple={this.props.simple} similarList={this.props.similarList}>
-
-							{!this.props.isLoading ? collabs.map((data, index) => {
+							{!this.props.isLoading ? collabs.slice(0, this.props.length).map((data, index) => {
 								return (
 									<Collab simple={this.props.simple} list={true} data={data}/>
 								)
@@ -202,6 +202,7 @@ export default class List extends React.Component {
 									)
 								})
 							}
+
 						</FlexRow>
 					</div>
 		    	: dataSet === 'influencers'?

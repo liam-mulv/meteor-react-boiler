@@ -5,27 +5,51 @@ export const SkeletonPostWrapper = styled.div`
     display: inline-block !important;
     vertical-align: top !important;
     white-space: normal !important;
-    width: 15%;
-    
-    @media (max-width: 1880px) { 
-        width: 15%;
-    }
+    position: relative;
 
-    @media (max-width: 1440px) { 
-        width: 20%;
-    }
+    ${props => props.simple ?
+        `@media (max-width: 2400px) { 
+            flex: 0 0 17%;    
+        }
+        @media (max-width: 1880px) { 
+            flex: 0 0 17%;    
+        }
 
-    @media (max-width: 1128px) { 
-        width: 33%;
-    }
+        @media (max-width: 1440px) { 
+            flex: 0 0 17%;    
+        }
 
-    @media (max-width: 744px) { 
-        width: 50%;
-    }
+        @media (max-width: 1128px) { 
+            flex: 0 0 17%;    
+        }
+
+        @media (max-width: 744px) { 
+            flex: 0 0 17%;    
+        }`
+    : 
+        `@media (max-width: 2400px) { 
+            flex: 0 0 17%;    
+        }
+        @media (max-width: 1880px) { 
+            flex: 0 0 17%;    
+        }
+
+        @media (max-width: 1440px) { 
+            flex: 0 0 17%;    
+        }
+
+        @media (max-width: 1128px) { 
+            flex: 0 0 17%;    
+        }
+
+        @media (max-width: 744px) { 
+            flex: 0 0 17%;    
+        }`
+    };
 `
 
 export const SkeletonPostTileInnerContainer = styled.div`
-    padding: 8px 16px 0px 0px;
+    padding: 8px;
 `
 
 export const SkeletonPostTile = styled.div`

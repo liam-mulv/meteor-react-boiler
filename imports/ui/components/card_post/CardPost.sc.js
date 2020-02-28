@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { BackgroundImage } from "react-image-and-background-image-fade";
 
 export const SkeletonCollabWrapper = styled.div`
-    width: 20%;
     display: inline-block !important;
     vertical-align: top !important;
     white-space: normal !important;
+    position: relative;
 
     @media (max-width: 1880px) { 
         width: 10%;
@@ -25,51 +25,47 @@ export const SkeletonCollabWrapper = styled.div`
 `
 
 export const PostWrapper = styled.div`
-    display: inline-block !important;
-    vertical-align: top !important;
-    white-space: normal !important;
-    width: 15%;
-    
+    position: relative;
+
 
     ${props => props.simple ?
         `@media (max-width: 2400px) { 
-            width: calc(100% / 10);
+            flex: 0 0 17%;    
         }
         @media (max-width: 1880px) { 
-            width: calc(100% / 9);
+            flex: 0 0 17%;    
         }
 
         @media (max-width: 1440px) { 
-            width: calc(100% / 8);
+            flex: 0 0 17%;    
         }
 
         @media (max-width: 1128px) { 
-            width: calc(100% / 7);
+            flex: 0 0 17%;    
         }
 
         @media (max-width: 744px) { 
-            width: calc(100% / 6);
+            flex: 0 0 17%;    
         }`
     : 
         `@media (max-width: 2400px) { 
-            width: calc(100% / 7);
+            flex: 0 0 17%;    
         }
         @media (max-width: 1880px) { 
-            width: calc(100% / 6);
+            flex: 0 0 17%;    
         }
 
         @media (max-width: 1440px) { 
-            width: calc(100% / 5);
+            flex: 0 0 17%;    
         }
 
         @media (max-width: 1128px) { 
-            width: calc(100% / 4);
+            flex: 0 0 17%;    
         }
 
         @media (max-width: 744px) { 
-            width: calc(100% / 3);
+            flex: 0 0 17%;    
         }`
-
     };
 `
 
