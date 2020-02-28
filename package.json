@@ -10,7 +10,7 @@
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@vyppn/chameleon-react": "^1.0.1",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^3.0.8",
     "color-thief": "^2.2.5",
     "colorthief": "^2.3.0",
     "dominant-color": "0.0.1",

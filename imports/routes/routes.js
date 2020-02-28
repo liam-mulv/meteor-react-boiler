@@ -19,7 +19,7 @@ import Discover from '../ui/pages/discover/Discover'
 import Profile from '../ui/pages/profile/Profile'
 import Collab from '../ui/pages/collab/Collab'
 import MyCollabs from '../ui/pages/my_collabs/MyCollabs'
-
+import SpiderDashboard from '../ui/pages/spider_dashboard/Spider'
 // Common components
 import NotFound from '../ui/common/NotFound'
 
@@ -57,6 +57,7 @@ export const routes = (
 				<Route path="/profile/:id" component={Profile}/>
 				<Route path="/collab/:id" component={Collab}/>
 				<Route path="/my-collabs" component={MyCollabs}/>
+				<Route path="/spider-dashboard" component={SpiderDashboard}/>
 				<Route component={NotFound}/>
 		    </Switch>
 		</React.Fragment>
