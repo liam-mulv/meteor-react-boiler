@@ -54,6 +54,7 @@ export const InfluencerTile = styled.div`
     overflow: hidden;
     position: relative;
     border-radius: 5px;
+    background-color: #fff;
     border: 1px solid #eee;
 
     a > div {
@@ -86,8 +87,7 @@ export const InfluencerTileInnerContainer = styled.div`
 `
 
 export const DisplayPicture = styled.div`
-    width: 100px;
-    height: 100px;
+    width: 70%;
     border-radius: 50%!important;
     margin: 20px auto 10px;
     overflow: hidden;
@@ -98,6 +98,7 @@ export const StyledBackgroundImage = styled(BackgroundImage)`
     background-position: center;
     width: 100%;
     height: 100%;
+    padding-bottom: 100%;
     transition: 0.2s;
     overflow: hidden;
 
@@ -167,11 +168,14 @@ export const TextBottom = styled.div`
 export const MainText = styled.div`
     border-radius: 0px!important;
     margin-bottom: 2px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 800;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: 80%;
+    text-align: center;
+    margin: auto;
 ` 
 
 export const SubText = styled.div`
@@ -179,7 +183,7 @@ export const SubText = styled.div`
     margin-bottom: 2px;
     font-size: 0.85rem;
     opacity: 0.5;
-    font-weight: 700;
+    font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

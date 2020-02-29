@@ -4,6 +4,13 @@ import SimpleSchema from 'simpl-schema'
 
 export const IG_Collection = new Mongo.Collection('IG')
 
+if (Meteor.isServer) {
+    Meteor.publish('IGPub', function () {
+        return IG_Collection.find({}, { sort: { follower_count: -1 }, limit: 10 })
+    })
+}
+
+
 
 if (Meteor.isServer) {
 
@@ -18,15 +25,34 @@ if (Meteor.isServer) {
             }
 
             new SimpleSchema({
+                // Basic
                 'username': {
                     type: String
                 },
-                'name': {
+                'full_name': {
+                    type: String
+                },
+                'first_name': {
+                    type: String
+                },
+                'last_name': {
                     type: String
                 },
                 'description': {
                     type: String
                 },
+
+                // Emails
+                'business_email': {
+                    type: String
+                },
+                'emails': {
+                    type: Array
+                },
+                'emails.$': {
+                    type: String
+                },
+
 
                 // Locations
                 'locations': {
@@ -41,6 +67,9 @@ if (Meteor.isServer) {
                'locations.primary_location.state': {
                     type: String
                 },
+                'locations.primary_location.city': {
+                    type: String
+                },               
                'locations.primary_location.location_readable': {
                     type: String
                 },
@@ -60,6 +89,15 @@ if (Meteor.isServer) {
                     type: String,
                     optional: true,
                 },
+
+                // Links
+                'profile_url': {
+                    type: String,
+                },
+                'website_url': {
+                    type: String,
+                },
+
 
                 // Categories
                 'categories': {
@@ -101,6 +139,9 @@ if (Meteor.isServer) {
                     type: Number
                 },
                 'avg_comments_per_post': {
+                    type: Number
+                },
+                'avg_views_per_video': {
                     type: Number
                 },
                 'estimated_cost_range_per_post': {

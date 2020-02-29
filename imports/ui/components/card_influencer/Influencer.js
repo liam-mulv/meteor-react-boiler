@@ -45,7 +45,7 @@ function Influencer(props) {
 						</React.Fragment>
 					}
 
-					<Link to={"/profile/"+props.data.instagram_handle}>
+					<Link to={"/profile/"+props.data.username}>
 						<DisplayPicture>
 							<StyledBackgroundImage 
 							 	simple={props.simple} 
@@ -53,25 +53,25 @@ function Influencer(props) {
 								height="100%" 
 								lazyLoad 
 								className="influencer-bg-img" 
-								src={props.data.profile_pic}
+								src={props.data.images ? props.data.images[0] : ''}
 							/>
 						</DisplayPicture>
 					</Link>
 
 					<TextBottom simple={props.simple}>
-						<Link to={"/profile/"+props.data.instagram_handle}>
-							<MainText>{props.data.full_name}</MainText>
-							<SubText simple={props.simple}>{props.data.instagram_handle}</SubText>
+						<Link to={"/profile/"+props.data.username}>
+							<MainText>{props.data.name}</MainText>
+							<SubText simple={props.simple}>{props.data.username}</SubText>
 						</Link>
 						<FollowerText>
-							<b>{props.data.instagram_follow_count_formatted}</b> <br/> 
+							<b>{props.data.follower_count_readable}</b> <br/> 
 							<div>followers</div>
 						</FollowerText>
 					</TextBottom>
 					{!props.simple &&
 						<React.Fragment>
 							<PriceText>
-					            <HeartIcon/> <span><small>RATE</small> <b>$500</b></span>
+					            <HeartIcon/> <span><small>RATE</small> <b>{props.data.estimated_cost_range_per_post ? props.data.estimated_cost_range_per_post[0] : ''}</b></span>
 					        </PriceText>
 						</React.Fragment>
 					}

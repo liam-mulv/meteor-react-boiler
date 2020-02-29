@@ -17,19 +17,17 @@ export const QuickNavShadow = styled.div`
 
 export const QuickNavWrapper = styled.div`
     position: ${props => props.notSticky ? 'initial' : 'sticky'};
-    top: ${props => props.stickyPosition ? props.stickyPosition : '60px'};
+    top: ${props => props.stickyPosition ? props.stickyPosition : '80px'};
     background-color: #fff;
     z-index: 11111;
-    z-index: 3;
-    height: 50px;
-    
+    z-index: 3;    
     margin-bottom: ${props => props.marginBottom && props.marginBottom};
 `
 
 export const QuickNavContainer = styled.div`
     padding: ${props => props.padding ? props.padding : '14px 35px 10px'};
     border-top:  ${props => props.topBorder ? '1px solid #eee' : '0px'};
-    border-bottom: 1px solid #eee;
+    // border-bottom: 1px solid #eee;
     height: 21px;
     font-weight: 600;
 

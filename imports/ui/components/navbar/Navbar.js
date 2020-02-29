@@ -104,7 +104,7 @@ export default class PrivateHeader extends React.Component {
 					</List>
 				</NavRight>
 			</Navbar>
-			<QuickNav navigation={navigation_component} notSticky={true} topBorder={false}/>
+			<QuickNav navigation={navigation_component} notSticky={false} topBorder={false}/>
 			</React.Fragment>
 		)
 	}

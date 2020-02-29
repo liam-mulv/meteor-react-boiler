@@ -42,6 +42,9 @@ import data2 from '../../data/influencer_data'
 import data3 from '../../data/instagram_post_data'
 
 
+import {IG_Collection} from '../../../api/models/IG'
+
+
 export default class List extends React.Component {
 
 	state = {
@@ -59,7 +62,6 @@ export default class List extends React.Component {
 	}
 
 	async componentDidMount() {
-		console.log(this.props.type)
 		window.addEventListener('scroll',  this.checkScroll)
 		this.setState({dataSet: typeof this.props.type !== 'undefined' ? this.props.type : 'collabs'})
 		setTimeout(() => {
@@ -69,10 +71,19 @@ export default class List extends React.Component {
 				influencers: data2.top_influencers, 
 			})
 		}, 1000)
+
+		// Gram pub
+        this.IGTracker = Tracker.autorun(() => {
+            Meteor.subscribe('IGPub');
+            let influencers = IG_Collection.find({}).fetch()
+            this.setState({influencers: influencers ? influencers : []})
+        });
 	}
 
 
 	componentWillUnmount() {
+		this.IGTracker.stop()
+
     	window.removeEventListener('scroll', this.checkScroll);
 	}
 
@@ -210,7 +221,7 @@ export default class List extends React.Component {
 		    			{!this.props.noTitle && this.renderTitle()}
 
 						<FlexRow counterPaddingWidth={true} browse='influencers' simple={this.props.simple} similarList={this.props.similarList}>
-							{!this.props.isLoading ? influencers.slice(0, this.props.length).map((data, index) => {
+							{!this.props.isLoading ? influencers.map((data, index) => {
 								return (
 									<Influencer simple={this.props.simple} list={true} data={data}/>
 								)
