@@ -9,10 +9,11 @@ import {FacebookLoginContainer} from './FacebookLogin.sc'
 // Icon
 import FacebookCircleIcon from '../../icons/facebook-circle.js'
 
-function FacebookLogin() {
+function FacebookLogin(props) {
 
 	handleResponse = (data) => {
 	    console.log(data);
+	    props.history.push('/home')
 	}
 	 
 	handleError = (error) => {
