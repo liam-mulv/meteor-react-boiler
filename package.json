@@ -34,6 +34,7 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-dates": "^21.5.1",
     "react-dom": "^16.7.0",
+    "react-facebook": "^8.1.4",
     "react-flickity-component": "^3.5.0",
     "react-highlighter": "^0.4.3",
     "react-image-and-background-image-fade": "^1.0.4",
