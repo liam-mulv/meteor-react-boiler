@@ -10,24 +10,24 @@ export const StyledBackgroundImage = styled(BackgroundImage)`
     background-position: center;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 5px;
 
     div {
-        border-radius: 50%;
+        border-radius: 5px;
     	overflow:hidden;	
     }
 `
 export const DisplayPictureWrapper = styled.div`
     position: relative;
-    width: 90px;
-    margin: auto;
+    width: 125px;
+    margin: auto auto 30px;
 `
 
 export const DisplayPictureContainer = styled.div`
-    width: 90px;
-    height: 90px;
+    width: 125px;
+    height: 125px;
     position: relative; 
-    border-radius: 50%;
+    border-radius: 5px;
     overflow: hidden;
 `
 
@@ -35,8 +35,8 @@ export const InstagramIconWrapper = styled.div`
     width: 17px;
     height: 17px;
     position: absolute;
-    bottom: 0px;
-    right: -8px;
+    bottom: -20px;
+    right: -20px;
     padding: 8px;
     background-color: #000;
     border-radius: 50%;
@@ -63,16 +63,16 @@ export const TextWrapper = styled.div`
 
 export const HostName = styled.div`
     font-size: 1.5rem!important;
-    margin: 15px 0px 5px!important;
-    font-weight: 800!important;
+    margin: 15px 0px 10px;
+    font-weight: 600!important;
     width: initial!important;
 `
 
 export const InstagramHandle = styled.h4`
 	font-size: 1rem;
-    font-weight: 700!important;
-    opacity: 1;
-    color: #808080;
+    font-weight: 600!important;
+    opacity: 0.4;
+    color: #000;
     text-transform: lowercase!important;
 
    	span {
@@ -89,10 +89,12 @@ export const InstagramHandle = styled.h4`
 `
 
 export const InstagramStats = styled.div`
+    display: flex;
+    text-align: center;
     font-size: 1.2rem;
     overflow: auto;
     display: flex;
-    padding: 20px 0px;
+    padding: 10px 0px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     margin: 30px 0px;
@@ -108,8 +110,20 @@ export const InstagramStats = styled.div`
     small {
         width: 100%;
         clear: both;
-        text-transform: uppercase;
-        font-size: 0.75rem;
+        font-size: 70%!important;
         opacity: 0.5;
+        margin-bottom: 5px;
+        font-weight: 400;
     }
+
+    p {
+        opacity: 1;
+        margin-bottom: 0px;
+        margin-top: 10px;
+    }
+
+    p  small {
+        opacity: 1;
+    }
+
 `

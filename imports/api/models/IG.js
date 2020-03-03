@@ -119,15 +119,23 @@ if (Meteor.isServer) {
                 },
                 'post_count': {
                     type: Number,
+                    optional: true,
                 },
                 'engagement_rate_readable': {
-                    type: String
+                    type: String,
+                    optional: true,
                 },
                 'post_count_readable': {
                     type: String,
+                    optional: true,
                 },
                 'follower_count_readable': {
-                    type: String
+                    type: String,
+                    optional: true,
+                },
+                'following_count_readable': {
+                    type: String,
+                    optional: true,
                 },
                 'post_frequency': {
                     type: Number

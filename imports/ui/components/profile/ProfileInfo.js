@@ -40,7 +40,8 @@ import {
 	ProfileRight,
 	InstagramFeed,
 	ProfileInfoRow,
-	InviteButtonContainer
+	InviteButtonContainer,
+	ProfileLinks
 } from './ProfileInfo.sc'
 import {Spacer, PageTitleWrapper} from '../../common/Common.sc'
 
@@ -58,6 +59,8 @@ import CheckIcon from '../../icons/check-circle'
 import StarIcon from '../../icons/star'
 import StarSolidIcon from '../../icons/star-solid'
 import BadgeCheckIcon from '../../icons/badge-check-solid'
+import PaperclipIcon from '../../icons/paperclip'
+import PaperPlaneIcon from '../../icons/paper-plane'
 
 // Data
 const tags = [
@@ -103,24 +106,34 @@ function ProfileInfo(props) {
 								<HostName>Emily van Run</HostName>
 							</Link>
 							<Link to={`/profile/andi.lane`}>
-								<InstagramHandle>@peaches.label <BadgeCheckIcon/></InstagramHandle>
+								<InstagramHandle>peaches.label <BadgeCheckIcon/></InstagramHandle>
 							</Link>
 							<InstagramStats>
-								<div>
-									<span>823</span><br/> <small>Posts</small>
+												<ProfileLinks>
+						<p><PaperPlaneIcon/>rxfusal@gmail.com</p>
+						<p><PaperclipIcon/>pinterest.com/dear_cherie</p>
+					</ProfileLinks>
+{/*								<div>
+								 	<small>Engagement</small><br/>
+									<p>9.7<small>%</small></p>
 								</div>
 								<div>
-									<span>12.5m</span><br/> <small>Followers</small>
+									<small>Followers</small><br/> 
+									<p>123k</p>
 								</div>
 								<div>
-									<span>9.7%</span><br/> <small>Engagement</small>
-								</div>
+									<small>Posts</small><br/> 
+									<p>823</p>
+								</div>*/}
 							</InstagramStats>
 						</TextWrapper>
 					</HostInfoWrapper>
-					<p>Lorem ipsum dolor sit amet, ne nam nonumy iisque prodesset. Erat perpetua mei at. Bonorum eruditi delectus mea id, copiosae expetenda consectetuer eu nam.</p>
-					<InviteButtonContainer>
-						<button>Invite<Shine/></button>
+
+
+{/*					<p>☕️ flat white to go thx — melbourne. next: syd — dreamer, content creator send love: 💌 | rxfusal@gmail.com</p>
+*/}					<InviteButtonContainer>
+						<button>Add To List<Shine/></button>
+						<button>Add To Collab<Shine/></button>
 					</InviteButtonContainer>
 				</ProfilePriceAndButtonWrapper>
 			:

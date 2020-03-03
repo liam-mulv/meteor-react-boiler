@@ -64,7 +64,7 @@ export const Brand = styled.h1`
     line-height: 1.2rem;
     position: relative;
     padding-bottom: 4px;
-    border-bottom: 4px solid #000;
+    // border-bottom: 4px solid #000;
 
     svg {
         width: 24px;

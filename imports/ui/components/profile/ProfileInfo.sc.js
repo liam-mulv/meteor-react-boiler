@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const ProfileSidebar = styled.div`
+    border-right: 1px solid #eee;
 
 `
 
@@ -12,20 +13,16 @@ export const ProfilePriceAndButtonWrapper = styled.div`
     z-index: 111;
     position: relative;
     background-color: #fff;
-    padding-top: 60px;
-
-    top: 50px;
-    margint-top: 20px;
 
     ${props => props.flex && 'display: flex;'};
-
-    border: 1px solid #eee;
+    position: sticky;
+    top: 81px;
     padding: 25px 35px;
     border-radius: 4px;
 
     h1 {
         font-size: 2rem!important;
-        margin: 0px 0px 0px;
+        margin: 20px 0px!important;
         font-weight: 900;
     }
 
@@ -49,6 +46,14 @@ export const ProfilePriceAndButtonWrapper = styled.div`
         width: 22.5px;
         margin-bottom: -6px;
         fill: #2196F3;
+    }
+
+
+    > p {
+        opacity: 0.6!important;
+        font-size: 1rem!important;
+        line-height: 1.5rem!important;
+        font-weight: 400!important;
     }
 `
 
@@ -317,11 +322,11 @@ export const ProfileButtonContainer = styled.div`
     }
 `
 export const InviteButtonContainer = styled.div`
-    display: flex;
     margin-top: 30px;
 
-
     button {
+        width: 100%;
+        margin-bottom: 15px;
         position: relative;
         border: 0px;
         border-radius: 3px;
@@ -349,6 +354,12 @@ export const InviteButtonContainer = styled.div`
 
     button:hover div {
         transform: skewX(20deg) translateX(600px);
+    }
+
+    button:first-child {
+        background-color: #fff;
+        border: 1px solid #222;
+        color: #222;
     }
 `
 
@@ -407,6 +418,22 @@ export const Tag = styled.div`
     :hover {
         cursor: pointer;
         background-color: #ddd;
+    }
+`
+
+export const ProfileLinks = styled.div`
+    padding: 0px 0px 10px;
+
+    p {
+        display: flex;
+        font-size: 1rem;
+        padding: 5px 0px;
+    }
+    svg {
+        fill: #000;
+        width: 17.5px;
+        margin-right: 10px;
+        margin-top: -8px;
     }
 `
 
