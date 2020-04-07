@@ -7,13 +7,14 @@ export const Navbar = styled.div`
     left: 0px;
     right: 0px;
     display: flex;
-    height: 70px;
-    padding: 5px 35px 5px;
+    // height: 65px;
+    align-items: center;
+    padding: 0px 35px;
     transition: 0.2s;
     // transform: ${props => props.compact ? ' translateY(0px)' : 'translateY(10px)'};
     // box-shadow: ${props => props.compact && '0px 12px 12px -16px rgba(0,0,0, 0.5)'};
-    z-index: 1111;
-    position: sticky;
+    z-index: 2;
+    // position: sticky;
     border-bottom: 1px solid #eee;
 `
 
@@ -21,9 +22,9 @@ export const NavRight = styled.div`
     display: flex;
     justify-content: flex-end;
     flex: 1;
-    
+    font-size: 0.95rem;
     li:last-child {
-        padding-left: 20px;
+        margin-left: 20px;
     }
 `
 
@@ -31,6 +32,22 @@ export const NavLeft = styled.div`
 	display: flex;
     justify-content: center;
     align-items: center;
+
+    > svg {
+        width: 20px;
+        height: 20px;
+        margin-left: 20px;
+    }
+
+    a {
+        width: 24px;
+        height: 24px; 
+    }
+
+    a svg {
+        width: 24px;
+        height: 24px; 
+    }
 `
 
 export const List = styled.ul`
@@ -44,16 +61,18 @@ export const List = styled.ul`
 `
 
 export const ListItem = styled.li`
-        font-weight: 700;
-        opacity: ${props => props.active ? '1' : '0.4'};
-        display: inline-block;
-        padding: 0px;
-        position: relative;
-        color: #000;
+    font-weight: 600;
+    opacity: ${props => props.active ? '1' : '0.4'};
+    display: inline-block;
+    padding: 0px;
+    position: relative;
+    color: #000;
 
-        svg {
-            width: ${props => props.width && props.width +'px'};
-        }
+    svg {
+        width: 22px;
+        height: 22px;
+        margin-top: 7px;
+    }
 `
 
 export const Brand = styled.h1`
@@ -64,7 +83,6 @@ export const Brand = styled.h1`
     line-height: 1.2rem;
     position: relative;
     padding-bottom: 4px;
-    // border-bottom: 4px solid #000;
 
     svg {
         width: 24px;
@@ -73,12 +91,12 @@ export const Brand = styled.h1`
 `
 
 export const BrandCenter = styled.h1`
-    margin: 13px auto 7px;
+    margin: 0px;
     letter-spacing: 0px;
     left: calc(50% - 55px);
     position: absolute;
-    overflow: hidden;
-
+    font-size: 2rem;
+    
     :hover {
         cursor: pointer;
     }
@@ -93,19 +111,19 @@ export const ActiveIndicator = styled.div`
     height: 3px;
     border-radius: 4px;
     width: 100%;
-    margin-top: 16px;
     background-color: #000;
     opacity: 1;
+    position: absolute;
+    bottom: -23px;
 `
 
 export const ProfileIcon = styled.div`
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
     background-image: url('${props => props.image && props.image}');
     background-size: cover;
     background-position: center;
-    margin-bottom: -2px;
 `
 
 export const Bubble = styled.div`

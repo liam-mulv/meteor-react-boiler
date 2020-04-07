@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL":"mongodb://admin:Pass12RET@ds323609-a0.mlab.com:23609,ds323609-a1.mlab.com:23609/heroku_gpqvw9s6?replicaSet=rs-ds323609&retryWrites=false"
+    }
+  }
+}

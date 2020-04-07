@@ -1,35 +1,4 @@
 
-/*
-@font-face {
-  font-family: 'Regular';
-  src: url('fonts/Regular-Regular.woff'), url('fonts/Regular-Regular.woff') format('woff');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Regular';
-  src: url('fonts/Regular-Medium.woff'), url('fonts/Regular-Medium.woff') format('woff');
-  font-weight: 600;
-}
-@font-face {
-  font-family: 'Regular';
-  src: url('fonts/Regular-Semibold.woff'), url('fonts/Regular-Semibold.woff') format('woff');
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: 'Regular';
-  src: url('fonts/Regular-Bold.woff'), url('fonts/Regular-Bold.woff') format('woff');
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: 'Regular';
-  src: url('fonts/Regular-Extrabold.woff'), url('fonts/Regular-Extrabold.woff') format('woff');
-  font-weight: 900;
-}
-
-*/
 @font-face {
   font-family: 'Maisonneue';
   src: url('fonts/MaisonNeue-Book.ttf'), url('fonts/MaisonNeue-Book.ttf') format('ttf');
@@ -43,7 +12,7 @@
 }
 @font-face {
   font-family: 'Maisonneue';
-  src: url('fonts/MaisonNeue-Extrabold.woff'), url('fonts/MaisonNeue-Extrabold.ttf') format('woff');
+  src: url('fonts/MaisonNeue-Extrabold.ttf'), url('fonts/MaisonNeue-Extrabold.ttf') format('woff');
   font-weight: 700;
 }
 
@@ -61,6 +30,8 @@ body {
     text-rendering: optimizeLegibility !important;
 }
 
+
+.fa-secondary{opacity:.4}
 
 
 #app {
@@ -88,7 +59,6 @@ a {
 
 a:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
 
 
@@ -115,17 +85,18 @@ p {
     background-color: rgba(0,0,0,0)!important;
 } 
 
-::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.35)!important;
-    border-radius: 5px;
-}
-
 ::-webkit-scrollbar-track {
     background-color: rgba(0,0,0,0)!important;
 }
 
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0)!important;
+    border-radius: 5px;
+}
 
-
+:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.35)!important;
+}
 
 .embla {
   overflow: hidden;
@@ -138,5 +109,12 @@ p {
 .embla__slide {
   position: relative; /* Needed if loop: true */
   flex: 0 0 100%; /* Choose any slide width */
+}
+
+/*** TOOLTIP ***/
+.__react_component_tooltip {
+  width: initial!important;
+  border-radius: 4px!important;
+  padding: 7px 8px 5px!important;
 }
 

@@ -5,20 +5,7 @@ import {Meteor} from 'meteor/meteor'
 
 // Styled Components
 import { DashboardContainer, StyledScrollbars } from '../home/Home.sc'
-import { PageContainer, PageFlexContainer, PageContent, FlexSpacer, ScrollElement  } from '../../common/Common.sc'
-
-// Components
-import Navbar from '../../components/navbar/Navbar'
-import RowInfluencer from '../../components/row/RowInfluencer'
-import RowCollabs from '../../components/row/RowCollabs'
-import Banner from '../../components/banner/Banner'
-import Footer from '../../components/footer/Footer'
-import Carousel from '../../components/carousel/Carousel'
-import CarouselBanner from '../../components/carousel/CarouselBanner'
-
-
-import {IG_Collection} from '../../../api/models/IG'
-
+import { PageContainer, PageFlexContainer, PageContent, FlexSpacer, ScrollElement  } from '../../components/common_old/Common.sc'
 
 export default class SpiderDashboard extends  React.Component {
 
@@ -38,7 +25,7 @@ export default class SpiderDashboard extends  React.Component {
 	timer = () =>{
 	   	// setState method is used to update the state
 	   	if(Meteor.isClient){
-			Meteor.call("IG_collection_count",  (error, result) => {
+			Meteor.call("ig_users.count",  (error, result) => {
 				console.log('Update count!')
 				if(!error) {
 					this.setState({IG_total_count: result})

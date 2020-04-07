@@ -1,13 +1,16 @@
 import React from 'react'
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+  
 
 // Components
-import QuickNav from '../quick-nav/QuickNav'
+// import QuickNav from '../quick-nav/QuickNav'
+import NavigateBack from '../common/navigation/NavigateBack'
+import HorizontalTabs from '../common/tabs/horizontal_tabs/HorizontalTabs'
 
 // Styled Components
-import { PrimaryButton, Shine } from '../../common/Common.sc'
+import { PrimaryButton, Shine } from '../common_old/Common.sc'
 import { 
 	Navbar, 
 	NavRight, 
@@ -30,82 +33,58 @@ import MessageIcon from '../../icons/message'
 import NotificationIcon from '../../icons/bell'
 import PuzzleIcon from '../../icons/puzzle'
 import HandPeaceIcon from '../../icons/hand-peace'
+import BarsIcon from '../../icons/bars'
+import SearchIcon from '../../icons/search'
 
+const navigation_routes = [
+	{label: 'Lists', path: '/lists'},
+	{label: 'Collabs', path: '/collabs'},
+]
 
-export default class PrivateHeader extends React.Component {
-
-	componentWillMount = () => {
-		if(!Meteor.userId()) {
-			this.props.history.replace('/')
-		}
-	}
+function PrivateHeader(props) {
 
 	onLogout = () => {
 		Accounts.logout()
 	}
 
-		state = {
-		compactNav: false
-	}
-
-	handleScrollFrame = (e) => {
-		if(e.scrollTop > 5 && this.state.compactNav !== true) {
-			this.setState({compactNav:true})
-		} else if (e.scrollTop < 5  && this.state.compactNav !== false) {
-			this.setState({compactNav:false})
+  	let history = useHistory()
+	const renderRouteOrLogo = () => {
+  		const location = history.location.pathname
+  		console.log(location)
+  		if(location !== '/' && location !== '/lists' && location !== '/collabs' ) {
+			return (
+				<NavigateBack previousPageTitle=""/>
+			)
+		} else {
+			return (
+				<Link to="/home">
+					<BarsIcon/>
+				</Link>
+			)
 		}
+
 	}
 
-	render() {
-
-		const navigation_component = [
-	  		{ name: 'Fashion', id: 'instagram-section', ref: this.instagramSectionRef}, 
-	  		{ name: 'Health & Fitness', id: 'collabs-section', ref: this.collabsSectionRef}, 
-	  		{ name: "Lifestyle", id: 'collabd-with-section', ref: this.collabdWithSectionRef},
-	  		{ name: 'Tech', id: 'reviews-section', ref: this.reviewsSectionRef}, 
-	  		{ name: 'Entertainment', id: 'reviews-section', ref: this.reviewsSectionRef}, 
-	  	]
-
-		return (
-			<React.Fragment>
-
-			<Navbar compact={this.props.compact}>
+	return (
+		<React.Fragment>
+			<Navbar>
 				<NavLeft>
-					<Link to="/home">
-						<Brand>
-							collab<Shine className="brand-shine"/>
-
-						</Brand>
-					</Link>
-					<SearchWrapper>
-						<SearchContainer>
-							<SearchInput placeholder="Search collabs"/><SearchButton>search</SearchButton>
-						</SearchContainer>
-					</SearchWrapper>
-
-{/*					<List>
-						<Link to="/home"><ListItem active={this.props.location.pathname === '/home'}>Home{this.props.location.pathname === '/home' && <ActiveIndicator/>}</ListItem></Link>
-						<Link to="/discover"><ListItem active={this.props.location.pathname === '/discover'}>Discover{this.props.location.pathname === '/discover' && <ActiveIndicator/>}</ListItem></Link>
-						<Link to="/post"><ListItem active={this.props.location.pathname === '/post'}>Post{this.props.location.pathname === '/post' && <ActiveIndicator/>}</ListItem></Link>
-						<Link to="/search"><ListItem active={this.props.location.pathname === '/search'}>Search{this.props.location.pathname === '/search' && <ActiveIndicator/>}</ListItem></Link>
-					</List>*/}
+					{renderRouteOrLogo()}
+					<SearchIcon/>
 				</NavLeft>
-{/*				<Link to="/home">
-		
-				</Link>*/}
+				<BrandCenter>collab</BrandCenter>
 				<NavRight>
-					<List padding='0px' margin="14px 0px">
-						<Link to="/my-collabs"><ListItem active={this.props.location.pathname === '/my-collabs'}>Collab Pro{this.props.location.pathname === '/my-collabs' && <ActiveIndicator/>}</ListItem></Link>
-						<Link to="/my-collabs"><ListItem active={this.props.location.pathname === '/my-collabs'}>Collabs{this.props.location.pathname === '/my-collabs' && <ActiveIndicator/>}</ListItem></Link>
-						<Link to="/my-collabs"><ListItem active={this.props.location.pathname === '/my-collabs'}>Messages{this.props.location.pathname === '/my-collabs' && <ActiveIndicator/>}</ListItem></Link>
-{/*						<ListItem active={true}><MessageIcon width={25}/></ListItem>
-						<ListItem active={true}><Bubble>12</Bubble><NotificationIcon width={22}/></ListItem>*/}
+					<List padding='0px' margin="0px">
+						<HorizontalTabs tabs={navigation_routes}/>
+{/*						<Link to="/lists"><ListItem active={props.location.pathname === '/lists'}>Lists{props.location.pathname === '/lists' && <ActiveIndicator/>}</ListItem></Link>
+						<Link to="/collabs"><ListItem active={props.location.pathname === '/collabs'}>Collabs{props.location.pathname === '/collabs' && <ActiveIndicator/>}</ListItem></Link>*/}
+						<ListItem active={props.location.pathname === '/notifications'}><NotificationIcon/>{props.location.pathname === '/notifications' && <ActiveIndicator/>}</ListItem>
 						<ListItem active={true}><ProfileIcon image="https://www.raconteur.net/wp-content/uploads/2019/03/shutterstock_1135973729.jpg"/></ListItem>
 					</List>
 				</NavRight>
 			</Navbar>
-{/*			<QuickNav navigation={navigation_component} notSticky={false} topBorder={false}/>
-*/}			</React.Fragment>
-		)
-	}
+		</React.Fragment>
+	)
 }
+
+export default PrivateHeader
