@@ -27,7 +27,7 @@
     "human-readable-numbers": "^0.9.5",
     "indexof": "0.0.1",
     "is-dark-color": "^1.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mention-hashtag": "^1.1.1",
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.23.0",
